@@ -1,0 +1,195 @@
+/* style for body */
+body {
+  min-width: 240px;
+  margin: 0px;
+  padding: 0px;
+  font-size: 12px;
+  font-family: "Arial";
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background: url("/images/background.jpeg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+/*style for a tag links*/
+a {
+  text-decoration: none;
+  color: white; }
+  a:hover {
+    text-decoration: none; }
+
+/*style for autofilled inputs*/
+@-webkit-keyframes autofill {
+  to {
+    color: #ecf0f1;
+    background: transparent; } }
+/*style for custom scrollbar*/
+input:-webkit-autofill {
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both; }
+
+::-webkit-scrollbar {
+  width: 10px; }
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; }
+
+::-webkit-scrollbar-thumb {
+  background: #282828; }
+
+::-webkit-scrollbar-thumb:hover {
+  background: #282828; }
+
+/*style for header*/
+header {
+  width: 100%;
+  height: 75px;
+  position: fixed;
+  top: 0;
+  background: rgba(0, 0, 0, 0.8);
+  line-height: 75px;
+  text-align: center;
+  z-index: 100;
+  overflow: hidden; }
+  header a {
+    margin-left: 30px;
+    margin-right: 30px;
+    cursor: pointer;
+    color: #ecf0f1 !important;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    transition-property: all; }
+    header a:hover {
+      color: #7f8c8d !important; }
+
+/*center vertically & horizontally*/
+.vertical-align {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+/*background class for skills section*/
+.skills-bg {
+  background: url("/images/skills.jpeg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+/*header settings*/
+.header-responsive {
+  height: 75px;
+  overflow-x: hidden;
+  overflow-y: auto; }
+
+/*home container size*/
+.screenSize-container {
+  width: 100vw;
+  min-height: 100vh; }
+
+/*own color classes*/
+.transBlack-container {
+  background-color: rgba(0, 0, 0, 0.8); }
+
+.transWhite-container {
+  background-color: rgba(255, 255, 255, 0.8); }
+
+.bg-darker {
+  background-color: #282828; }
+
+/*pointer of gallery image*/
+.galleryImage {
+  cursor: pointer; }
+
+/*gallery modal window style*/
+.fullSizeImage {
+  position: fixed;
+  z-index: 1564556465;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  display: none; }
+  .fullSizeImage .closeBtn {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    border-radius: 25px;
+    z-index: 10; }
+  .fullSizeImage .imageBox {
+    width: 50%;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    background-size: contain;
+    margin: auto; }
+  .fullSizeImage .arrows {
+    width: 30px;
+    height: 80px;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.8);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    top: 50%;
+    line-height: 80px;
+    cursor: pointer;
+    z-index: 10; }
+  .fullSizeImage .floatLeft {
+    float: left;
+    left: 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px; }
+  .fullSizeImage .floatRight {
+    float: right;
+    right: 0;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px; }
+
+/*settings for hamburger navigation icon*/
+/*#nav-open {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 18px; }*/
+
+/*style for footer social buttons*/
+.social-footer {
+  background-color: transparent;
+  border-radius: 100%;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  transition-property: all; }
+  .social-footer:hover {
+    background-color: gray; }
+
+/*responsivity settings from 0px to 1038px*/
+@media only screen and (max-width: 1038px) {
+  .header-responsive {
+    height: 100vh; }
+
+  header a {
+    display: block; }
+
+  /*#nav-open {
+    display: inherit; } }*/
+
+/*# sourceMappingURL=style.css.map */

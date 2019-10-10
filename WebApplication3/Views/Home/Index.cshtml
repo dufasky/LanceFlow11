@@ -1,0 +1,988 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@*@{
+    Layout = null;
+}*@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Artist Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary stylesheet -->
+    <link rel="stylesheet" href="~/css/styleTest.css" />
+    <!-- Bootstrap stylesheet -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="shortcut icon" type="image/png" href="#" />
+</head>
+<body>
+    <style>
+        @@charset "UTF-8";
+        /* style for body */
+        body {
+            min-width: 240px;
+            margin: 0px;
+            padding: 0px;
+            font-size: 12px;
+            font-family: "Arial";
+            background-color: white;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            background: url("../img/background.jpeg") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        /*style for a tag links*/
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+            a:hover {
+                text-decoration: none;
+            }
+        /*style for autofilled inputs*/
+        @@-webkit-keyframes autofill {
+            to {
+                color: #ecf0f1;
+                background: transparent;
+            }
+        }
+        /*style for custom scrollbar*/
+        input:-webkit-autofill {
+            -webkit-animation-name: autofill;
+            -webkit-animation-fill-mode: both;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #282828;
+        }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #282828;
+            }
+        /*style for header
+        header {
+            width: 100%;
+            height: 75px;
+            position: fixed;
+            top: 0;
+            background: rgba(0, 0, 0, 0.8);
+            line-height: 75px;
+            text-align: center;
+            z-index: 100;
+            overflow: hidden;
+        }
+
+            header a {
+                margin-left: 30px;
+                margin-right: 30px;
+                cursor: pointer;
+                color: #ecf0f1 !important;
+                -webkit-transition: 0.5s;
+                -moz-transition: 0.5s;
+                -ms-transition: 0.5s;
+                -o-transition: 0.5s;
+                transition: 0.5s;
+                transition-property: all;
+            }
+
+                header a:hover {
+                    color: #7f8c8d !important;
+                }*/
+        /*center vertically & horizontally*/
+        .vertical-align {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        /*background class for skills section*/
+        .skills-bg {
+            background: url("../img/skills.jpeg") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        /*header settings*/
+        .header-responsive {
+            height: 75px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        /*home container size*/
+        .screenSize-container {
+            width: 100vw;
+            min-height: 100vh;
+        }
+        /*own color classes*/
+        .transBlack-container {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .transWhite-container {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .bg-darker {
+            background-color: #282828;
+        }
+        /*pointer of gallery image*/
+        .galleryImage {
+            cursor: pointer;
+        }
+        /*gallery modal window style*/
+        .fullSizeImage {
+            position: fixed;
+            z-index: 1564556465;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .7);
+            text-align: center;
+            display: none;
+        }
+
+            .fullSizeImage .closeBtn {
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                top: 10px;
+                right: 10px;
+                cursor: pointer;
+                border-radius: 25px;
+                z-index: 10;
+            }
+
+            .fullSizeImage .imageBox {
+                width: 50%;
+                position: relative;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+                background-size: contain;
+                margin: auto;
+            }
+
+            .fullSizeImage .arrows {
+                width: 30px;
+                height: 80px;
+                position: fixed;
+                background-color: rgba(255, 255, 255, 0.8);
+                -webkit-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+                top: 50%;
+                line-height: 80px;
+                cursor: pointer;
+                z-index: 10;
+            }
+
+            .fullSizeImage .floatLeft {
+                float: left;
+                left: 0;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+
+            .fullSizeImage .floatRight {
+                float: right;
+                right: 0;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
+        /*settings for hamburger navigation icon*/
+        /*#nav-open {
+            display: none;
+            position: absolute;
+            right: 10px;
+            top: 18px;
+        }*/
+        /*style for footer social buttons*/
+        .social-footer {
+            background-color: transparent;
+            border-radius: 100%;
+            -webkit-transition: 0.5s;
+            -moz-transition: 0.5s;
+            -ms-transition: 0.5s;
+            -o-transition: 0.5s;
+            transition: 0.5s;
+            transition-property: all;
+        }
+
+            .social-footer:hover {
+                background-color: gray;
+            }
+        /*responsivity settings from 0px to 1038px*/
+        @@media only screen and (max-width: 1038px) {
+            .header-responsive {
+                height: 100vh;
+            }
+
+            header a {
+                display: block;
+            }
+
+            /*#nav-open {
+                display: inherit;
+            }*/
+        }
+
+        body {
+            min-width: 240px;
+            margin: 0px;
+            padding: 0px;
+            font-size: 12px;
+            font-family: "Arial";
+            background-color: white;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            background: url("/images/background1.jpeg") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        /*style for a tag links*/
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+            a:hover {
+                text-decoration: none;
+            }
+
+        /*style for autofilled inputs*/
+        @@-webkit-keyframes autofill {
+            to {
+                color: #ecf0f1;
+                background: transparent;
+            }
+        }
+        /*style for custom scrollbar*/
+        input:-webkit-autofill {
+            -webkit-animation-name: autofill;
+            -webkit-animation-fill-mode: both;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #282828;
+        }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #282828;
+            }
+
+        /*style for header*/
+        header {
+            width: 100%;
+            height: 75px;
+            position: fixed;
+            top: 0;
+            background: rgba(0, 0, 0, 0.8);
+            line-height: 75px;
+            text-align: center;
+            z-index: 100;
+            overflow: hidden;
+        }
+
+            header a {
+                margin-left: 30px;
+                margin-right: 30px;
+                cursor: pointer;
+                color: #ecf0f1 !important;
+                -webkit-transition: 0.5s;
+                -moz-transition: 0.5s;
+                -ms-transition: 0.5s;
+                -o-transition: 0.5s;
+                transition: 0.5s;
+                transition-property: all;
+            }
+
+                header a:hover {
+                    color: #7f8c8d !important;
+                }
+
+        /*center vertically & horizontally*/
+        .vertical-align {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /*background class for skills section*/
+        .skills-bg {
+            background: url("/images/skills1.jpeg") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        /*header settings*/
+        .header-responsive {
+            height: 75px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        /*home container size*/
+        .screenSize-container {
+            width: 100vw;
+            min-height: 100vh;
+        }
+
+        /*own color classes*/
+        .transBlack-container {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .transWhite-container {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .bg-darker {
+            background-color: #282828;
+        }
+
+        /*pointer of gallery image*/
+        .galleryImage {
+            cursor: pointer;
+        }
+
+        /*gallery modal window style*/
+        .fullSizeImage {
+            position: fixed;
+            z-index: 1564556465;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            display: none;
+        }
+
+            .fullSizeImage .closeBtn {
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                top: 10px;
+                right: 10px;
+                cursor: pointer;
+                border-radius: 25px;
+                z-index: 10;
+            }
+
+            .fullSizeImage .imageBox {
+                width: 50%;
+                position: relative;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+                background-size: contain;
+                margin: auto;
+            }
+
+            .fullSizeImage .arrows {
+                width: 30px;
+                height: 80px;
+                position: fixed;
+                background-color: rgba(255, 255, 255, 0.8);
+                -webkit-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+                top: 50%;
+                line-height: 80px;
+                cursor: pointer;
+                z-index: 10;
+            }
+
+            .fullSizeImage .floatLeft {
+                float: left;
+                left: 0;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+
+            .fullSizeImage .floatRight {
+                float: right;
+                right: 0;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
+
+        /*settings for hamburger navigation icon*/
+        /*#nav-open {
+            display: none;
+            position: absolute;
+            right: 10px;
+            top: 18px;
+        }*/
+
+        /*style for footer social buttons*/
+        .social-footer {
+            background-color: transparent;
+            border-radius: 100%;
+            -webkit-transition: 0.5s;
+            -moz-transition: 0.5s;
+            -ms-transition: 0.5s;
+            -o-transition: 0.5s;
+            transition: 0.5s;
+            transition-property: all;
+        }
+
+            .social-footer:hover {
+                background-color: gray;
+            }
+
+        /*responsivity settings from 0px to 1038px*/
+        /*@@media only screen and (max-width: 1038px) {
+            .header-responsive {
+                height: 100vh;
+            }
+
+            header a {
+                display: block;
+            }
+
+            #nav-open {
+                display: inherit;
+            }
+        }*/
+    </style>
+
+
+
+    <!-- Header -->
+    @*<header class="">
+        <img class="" src="~/images/logo.png" width="100" height="auto">
+        <a href="#home" class="color-white">Home</a>
+        <a href="#experience" class="color-white">Experience</a>
+        <a href="#aboutme" class="color-white">About me</a>
+        <a href="#skills" class="color-white">Skills</a>
+        <a href="#work" class="color-white">Latest work</a>
+        <a href="#articles" class="color-white">Latest articles</a>
+        <a href="#contactme" class="color-white">Contact me</a>
+        <img id="nav-open" src="~/images/nav-hamburger.svg" width="40" height="auto">
+    </header>*@
+
+
+    <!-- Home container -->
+    <section id="home" class="screenSize-container">
+        <div class="transWhite-container text-center text-dark p-3 vertical-align">
+            <h1 class="font-weight-light text-uppercase">LanceBlow</h1>
+            <h3>Performance</h3>
+            <h5 class="font-weight-light mt-3">Cистема распределения горячего дутья  и природного газа по фурмам доменной печи</h5>
+        </div>
+    </section>
+    <!-- Experience container -->
+    <section id="experience" class="">
+        <div class="row pb-5 transBlack-container">
+            <div class="col-8 offset-2 text-center pt-5 pb-1 text-light">
+                <h1 class="font-weight-light">Возможности программы</h1>
+            </div>
+            <div class="col-8 offset-2 text-center text-light row mt-5 text-center">
+                <div class="col-xl-4 col-md-6 col-12 text-left mt-5 pr-4 pl-4">
+                    <img class="" src="~/images/art.svg" width="50" height="auto">
+                    <h4 class="font-weight-light text-uppercase mt-2 mb-3">Предварительные расчёты</h4>
+                    <p class="font-weight-light">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                        Integer malesuada. Class aptent taciti sociosqu ad litora
+                        torquent per conubia nostra, per inceptos hymenaeos.
+                    </p>
+                </div>
+                <div class="col-xl-4 col-md-6 col-12 text-left mt-5 pr-4 pl-4">
+                    <img class="" src="~/images/art.svg" width="50" height="auto">
+                    <h4 class="font-weight-light text-uppercase mt-2 mb-3">Расчет распределения дутья по фурмам</h4>
+                    <p class="font-weight-light">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                        Integer malesuada. Class aptent taciti sociosqu ad litora
+                        torquent per conubia nostra, per inceptos hymenaeos.
+                    </p>
+                </div>
+                <div class="col-xl-4 col-md-6 col-12 text-left mt-5 pr-4 pl-4">
+                    <img class="" src="~/images/art.svg" width="50" height="auto">
+                    <h4 class="font-weight-light text-uppercase mt-2 mb-3">Расчет теоретической температуры горения</h4>
+                    <p class="font-weight-light">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                        Integer malesuada. Class aptent taciti sociosqu ad litora
+                        torquent per conubia nostra, per inceptos hymenaeos.
+                    </p>
+                </div>
+                <div class="col-xl-4 col-md-6 col-12 text-left mt-5 pr-4 pl-4">
+                    <img class="" src="~/images/art.svg" width="50" height="auto">
+                    <h4 class="font-weight-light text-uppercase mt-2 mb-3">Исключения имеющейся неравномерности нагрева фурменных очагов</h4>
+                    <p class="font-weight-light">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                        Integer malesuada. Class aptent taciti sociosqu ad litora
+                        torquent per conubia nostra, per inceptos hymenaeos.
+                    </p>
+                </div>
+                <div class="col-xl-4 col-md-6 col-12 text-left mt-5 pr-4 pl-4">
+                    <img class="" src="~/images/art.svg" width="50" height="auto">
+                    <h4 class="font-weight-light text-uppercase mt-2 mb-3">Расчет скорости и кинетической энергии истечения дутья из воз-душных фурм</h4>
+                    <p class="font-weight-light">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                        Integer malesuada. Class aptent taciti sociosqu ad litora
+                        torquent per conubia nostra, per inceptos hymenaeos.
+                    </p>
+                </div>
+                <div class="col-xl-4 col-md-6 col-12 text-left mt-5 pr-4 pl-4">
+                    <img class="" src="~/images/art.svg" width="50" height="auto">
+                    <h4 class="font-weight-light text-uppercase mt-2 mb-3">Определения значения зоны циркуляции и окислительных зон</h4>
+                    <p class="font-weight-light">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                        Integer malesuada. Class aptent taciti sociosqu ad litora
+                        torquent per conubia nostra, per inceptos hymenaeos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Me container -->
+    <section id="aboutme" class="">
+        <div class="row pb-5 bg-light">
+            <div class="col-8 offset-2 text-center pt-5 pb-1 text-dark">
+                <h1 class="font-weight-light">About Me</h1>
+            </div>
+            <div class="col-md-8 offset-md-2 col-10 offset-1 text-left mt-5 row">
+                <div class="col-lg-6 col-12 text-left p-4">
+                    <p class="mb-5">
+                        вместо него выбор вариантов
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                        Integer malesuada. Class aptent taciti sociosqu ad litora
+                        torquent per conubia nostra, per inceptos hymenaeos.
+                        Pellentesque arcu. Curabitur ligula sapien, pulvinar
+                        a vestibulum quis, facilisis vel sapien.
+                    </p>
+
+                    <div class="col-xl-4 col-8 p-0 d-inline-block">
+                        <p class="m-0"><b class="">Name:</b></p>
+                    </div>
+                    <div class="col-xl-4 col-8 p-0 d-inline-block">
+                        <p class="m-0"><i class="">James Darcy</i></p>
+                    </div>
+                    <hr class="col-8 ml-0" />
+                    <div class="col-xl-4 col-8 p-0 d-inline-block">
+                        <p class="m-0"><b class="">Gender:</b></p>
+                    </div>
+                    <div class="col-xl-4 col-8 p-0 d-inline-block">
+                        <p class="m-0"><i class="">Male</i></p>
+                    </div>
+                    <hr class="col-8 ml-0" />
+                    <div class="col-xl-4 col-8 p-0 d-inline-block">
+                        <p class="m-0"><b class="">Email:</b></p>
+                    </div>
+                    <div class="col-xl-4 col-8 p-0 d-inline-block">
+                        <p class="m-0"><i class="">example@example.com</i></p>
+                    </div>
+                    <hr class="col-8 ml-0" />
+                    <div class="col-xl-4 col-8 p-0 d-inline-block">
+                        <p class="m-0"><b class="">Phone:</b></p>
+                    </div>
+                    <div class="col-xl-4 col-8 p-0 d-inline-block">
+                        <p class="m-0"><i class="">+123 456 789 123</i></p>
+                    </div>
+                    <hr class="col-8 ml-0" />
+                    <div class="col-xl-4 col-8 p-0 d-inline-block">
+                        <p class="m-0"><b class="">Address:</b></p>
+                    </div>
+                    <div class="col-xl-4 col-8 p-0 d-inline-block">
+                        <p class="m-0"><i class="">Birmingham, UK</i></p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 text-left p-4">
+                    <h4 class="font-weight-light mb-4">Lorem ipsum</h4>
+                    <p class="mb-5">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                        Integer malesuada. Class aptent taciti sociosqu ad litora
+                        torquent per conubia nostra, per inceptos hymenaeos.
+                        Pellentesque arcu. Curabitur ligula sapien, pulvinar
+                        a vestibulum quis, facilisis vel sapien.
+                    </p>
+                    <h4 class="font-weight-light mb-4">Lorem ipsum</h4>
+                    <p class="mb-5">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                        Integer malesuada. Class aptent taciti sociosqu ad litora
+                        torquent per conubia nostra, per inceptos hymenaeos.
+                        Pellentesque arcu. Curabitur ligula sapien, pulvinar
+                        a vestibulum quis, facilisis vel sapien.
+                    </p>
+                    <h4 class="font-weight-light mb-4">Lorem ipsum</h4>
+                    <p class="mb-5">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                        Integer malesuada. Class aptent taciti sociosqu ad litora
+                        torquent per conubia nostra, per inceptos hymenaeos.
+                        Pellentesque arcu. Curabitur ligula sapien, pulvinar
+                        a vestibulum quis, facilisis vel sapien.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Skills container -->
+    <section id="skills" class="skills-bg">
+        <div class="row pb-5 transBlack-container">
+            <div class="col-8 offset-2 text-center pt-5 pb-1 text-white">
+                <h1 class="font-weight-light">Skills</h1>
+            </div>
+            <div class="col-md-8 offset-md-2 col-10 offset-1 text-left mt-5 row">
+                <div class="col-xl-4 col-12 text-white pr-4 pl-4">
+                    <h3>Education</h3>
+                    <div class="border-bottom border-light mb-4"></div>
+                    <div class="">
+                        <h4 class="font-weight-light">Art school name</h4>
+                        <i>2012 - 2017</i>
+                        <p class="mt-3 mb-4">Art history</p>
+                    </div>
+                    <div class="">
+                        <h4 class="font-weight-light">High school name</h4>
+                        <i>2012 - 2017</i>
+                        <p class="mt-3 mb-4">Art history</p>
+                    </div>
+                    <div class="">
+                        <h4 class="font-weight-light">University name</h4>
+                        <i>2012 - 2017</i>
+                        <p class="mt-3 mb-4">Art history</p>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-12 text-white pr-4 pl-4">
+                    <h3>Experience</h3>
+                    <div class="border-bottom border-light mb-4"></div>
+                    <div class="">
+                        <h4 class="font-weight-light">Art painter</h4>
+                        <i>2017 - 2018</i>
+                        <p class="mt-3 mb-4">Gothic painting</p>
+                    </div>
+                    <div class="">
+                        <h4 class="font-weight-light">Art painter</h4>
+                        <i>2018 - NOW</i>
+                        <p class="mt-3 mb-4">Renesance painting</p>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-12 text-white pr-4 pl-4">
+                    <h3>Artistic period</h3>
+                    <div class="border-bottom border-light mb-4"></div>
+                    <p class="mb-1">Renesance</p>
+                    <div class="progress">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 78%;" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100">78%</div>
+                    </div>
+                    <p class="mb-1 mt-5">Baroque</p>
+                    <div class="progress">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
+                    </div>
+                    <p class="mb-1 mt-5">Romanticism</p>
+                    <div class="progress">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 64%;" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100">64%</div>
+                    </div>
+                    <p class="mb-1 mt-5">Realism</p>
+                    <div class="progress">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 92%;" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100">92%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Latest work container -->
+    <section id="work" class="">
+        <div class="row pb-5 bg-light">
+            <div class="col-8 offset-2 text-center pt-5 pb-1 text-dark">
+                <h1 class="font-weight-light">Latest work</h1>
+            </div>
+            <div class="col-md-8 offset-md-2 col-10 offset-1 offset-md-0 text-left mt-5 row">
+                <div class="col-lg-4 col-md-6 col-12 mt-3 mb-3">
+                    <img data-index="1" class="img-fluid galleryImage" src="~/images/galleryImg.jpeg">
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 mt-3 mb-3">
+                    <img data-index="2" class="img-fluid galleryImage" src="~/images/galleryImg.jpeg">
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 mt-3 mb-3">
+                    <img data-index="3" class="img-fluid galleryImage" src="~/images/galleryImg.jpeg">
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 mt-3 mb-3">
+                    <img data-index="4" class="img-fluid galleryImage" src="~/images/galleryImg.jpeg">
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 mt-3 mb-3">
+                    <img data-index="5" class="img-fluid galleryImage" src="~/images/galleryImg.jpeg">
+                </div>
+                <div class="col-lg-4 col-md-6 col-12 mt-3 mb-3">
+                    <img data-index="6" class="img-fluid galleryImage" src="~/images/galleryImg.jpeg">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Latest Articles container -->
+    <section id="articles" class="">
+        <div class="row pb-5 bg-dark">
+            <div class="col-8 offset-2 text-center pt-5 pb-1 text-white">
+                <h1 class="font-weight-light">Latest articles</h1>
+                <h5 class="font-weight-light">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer malesuada.</h5>
+            </div>
+            <div class="col-md-8 offset-md-2 col-10 offset-1 offset-md-0 text-left mt-5 row">
+                <div class="col-xl-4 col-md-6 col-12 mt-3 mb-3 align-top text-dark text-center">
+                    <div class="bg-light pb-3">
+                        <img class="img-fluid mb-3 mt-3" src="~/images/articleImg.png">
+                        <div class="text-left pl-3">
+                            <h5 class="">Lorem ipsum dolor sit amet</h5>
+                            <i>1<sup>th</sup> May, 2018</i>
+                            <p class="mt-3">
+                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                                Integer malesuada. Class aptent taciti sociosqu ad litora
+                                torquent per conubia nostra, per inceptos hymenaeos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 col-12 mt-3 mb-3 align-top text-dark text-center">
+                    <div class="bg-light pb-3">
+                        <img class="img-fluid mb-3 mt-3" src="~/images/articleImg.png">
+                        <div class="text-left pl-3">
+                            <h5 class="">Lorem ipsum dolor sit amet</h5>
+                            <i>1<sup>th</sup> May, 2018</i>
+                            <p class="mt-3">
+                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                                Integer malesuada. Class aptent taciti sociosqu ad litora
+                                torquent per conubia nostra, per inceptos hymenaeos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 col-12 mt-3 mb-3 align-top text-dark text-center">
+                    <div class="bg-light pb-3">
+                        <img class="img-fluid mb-3 mt-3" src="~/images/articleImg.png">
+                        <div class="text-left pl-3">
+                            <h5 class="">Lorem ipsum dolor sit amet</h5>
+                            <i>1<sup>th</sup> May, 2018</i>
+                            <p class="mt-3">
+                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                                Integer malesuada. Class aptent taciti sociosqu ad litora
+                                torquent per conubia nostra, per inceptos hymenaeos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+    <!-- Footer -->
+    <footer>
+        <div class="row pb-5 bg-darker">
+            <div class="col-md-8 offset-md-2 col-10 offset-1 offset-md-0 text-left mt-5 row">
+                <div class="col-md-4 col-12 text-white pr-4 pl-4">
+                    <h5 class="font-weight-light">Contact me</h5>
+                    <div class="border-bottom border-light mb-4"></div>
+                    <p><b>Phone: </b><a href="#" class="text-white">+123 456 789 123</a></p>
+                    <p><b>Email: </b><a href="#" class="text-white">example@example.com</a></p>
+                    <p><b>Fax: </b><a href="#" class="text-white">(12) 34 5678 9123</a></p>
+                </div>
+                <div class="col-md-4 col-12 text-white pr-4 pl-4">
+                    <h5 class="font-weight-light">My address</h5>
+                    <div class="border-bottom border-light mb-4"></div>
+                    <p>68  Kingsway North</p>
+                    <p>HOLMSTON</p>
+                    <p>KA7 5BN</p>
+                </div>
+                <div class="col-md-4 col-12 text-white pr-4 pl-4">
+                    <h5 class="font-weight-light">Social</h5>
+                    <div class="border-bottom border-light mb-4"></div>
+                    <a href="#"><img class="social-footer" src="~/images/facebookLightIcon.svg"></a>
+                    <a href="#"><img class="social-footer" src="~/images/twitterLightIcon.svg"></a>
+                </div>
+            </div>
+        </div>
+        <div class="row bg-white text-dark text-center p-3">
+            <div class="col-8 offset-2 text-center">
+                Copyrights © 2019 TIM
+            </div>
+        </div>
+    </footer>
+    <!-- Gallery modal window -->
+    <div class="fullSizeImage">
+        <div class="arrows floatLeft absLeftOnly"><img class="moveIcon" src="~/images/moveIcon.svg" width="20" height="auto"></div>
+        <img class="closeBtn" src="~/images/closeBtn.svg" width="20" height="auto">
+        <img class="imageBox" height="auto" src="">
+        <div class="arrows floatRight absRightOnly"><img class="moveIcon" src="~/images/moveIcon2.svg" width="20" height="auto"></div>
+    </div>
+
+    <!-- jQuery library -->
+    <script src="~/js/jquery.min.js"></script>
+    <!-- Bootstrap library -->
+    <script src="~/js/bootstrap.min.js"></script>
+    <!-- Primary JavaScript -->
+    <script type="text/javascript" src="~/js/index.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="~/images/maxresdefault.jpg" alt="ASP.NET" class="img-responsive" />
+                <div class="carousel-caption" role="option">
+                    <p>
+                        Learn how to build ASP.NET apps that can run anywhere.
+                        <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
+                            Learn More
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="~/images/banner2.svg" alt="Visual Studio" class="img-responsive" />
+                <div class="carousel-caption" role="option">
+                    <p>
+                        There are powerful new features in Visual Studio for building modern web apps.
+                        <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
+                            Learn More
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="~/images/banner3.svg" alt="Microsoft Azure" class="img-responsive" />
+                <div class="carousel-caption" role="option">
+                    <p>
+                        Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
+                        <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
+                            Learn More
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <h2>Информационно-моделирующая система распределения горячего дутья  и природного газа по фурмам доменной печи </h2>
+            <p>
+               Данная программа позволит облегчить расчеты, а так же предоставит их в графическом виде.
+            </p>
+        </div>
+     </div>*@
+
+
+
+
+
+
+
+@*<div class="row">
+        <div class="col-md-3">
+            <h2>Application uses</h2>
+            <ul>
+                <li>Sample pages using ASP.NET Core MVC</li>
+                <li>Theming using <a href="https://go.microsoft.com/fwlink/?LinkID=398939">Bootstrap</a></li>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <h2>How to</h2>
+            <ul>
+                <input id="Text1" type="text" />
+                <li><a href="https://go.microsoft.com/fwlink/?LinkID=398600">Add a Controller and View</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699315">Manage User Secrets using Secret Manager.</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699316">Use logging to log a message.</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Add packages using NuGet.</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699319">Target development, staging or production environment.</a></li>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <h2>Overview</h2>
+            <ul>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkId=518008">Conceptual overview of what is ASP.NET Core</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699320">Fundamentals of ASP.NET Core such as Startup and middleware.</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkId=398602">Working with Data</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkId=398603">Security</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkID=699321">Client side development</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkID=699322">Develop on different platforms</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkID=699323">Read more on the documentation site</a></li>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <h2>Run &amp; Deploy</h2>
+            <ul>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkID=517851">Run your app</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkID=517853">Run tools such as EF migrations and more</a></li>
+                <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
+            </ul>
+        </div>
+    </div>*@
+

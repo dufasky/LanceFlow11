@@ -1,0 +1,114 @@
+C:\Users\Professional\source\repos\WebApplication3\bin\Debug\netcoreapp2.1\WebApplication3.deps.json
+C:\Users\Professional\source\repos\WebApplication3\bin\Debug\netcoreapp2.1\WebApplication3.runtimeconfig.json
+C:\Users\Professional\source\repos\WebApplication3\bin\Debug\netcoreapp2.1\WebApplication3.runtimeconfig.dev.json
+C:\Users\Professional\source\repos\WebApplication3\bin\Debug\netcoreapp2.1\WebApplication3.dll
+C:\Users\Professional\source\repos\WebApplication3\bin\Debug\netcoreapp2.1\WebApplication3.pdb
+C:\Users\Professional\source\repos\WebApplication3\bin\Debug\netcoreapp2.1\WebApplication3.Views.dll
+C:\Users\Professional\source\repos\WebApplication3\bin\Debug\netcoreapp2.1\WebApplication3.Views.pdb
+C:\Users\Professional\source\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.csprojAssemblyReference.cache
+C:\Users\Professional\source\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.csproj.CoreCompileInputs.cache
+C:\Users\Professional\source\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.RazorAssemblyInfo.cache
+C:\Users\Professional\source\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.RazorAssemblyInfo.cs
+C:\Users\Professional\source\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.AssemblyInfoInputs.cache
+C:\Users\Professional\source\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.AssemblyInfo.cs
+C:\Users\Professional\source\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.TagHelpers.input.cache
+C:\Users\Professional\source\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.TagHelpers.output.cache
+C:\Users\Professional\source\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.RazorCoreGenerate.cache
+C:\Users\Professional\source\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
+C:\Users\Professional\source\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
+C:\Users\Professional\source\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+C:\Users\Professional\source\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
+C:\Users\Professional\source\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
+C:\Users\Professional\source\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Users\Professional\source\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
+C:\Users\Professional\source\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\Professional\source\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
+C:\Users\Professional\source\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
+C:\Users\Professional\source\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.RazorTargetAssemblyInfo.cache
+C:\Users\Professional\source\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.RazorTargetAssemblyInfo.cs
+C:\Users\Professional\source\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.Views.pdb
+C:\Users\Professional\source\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.dll
+C:\Users\Professional\source\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.pdb
+C:\Users\Professional\source\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.csproj.CopyComplete
+Q:\Desktop\repos\WebApplication3\bin\Debug\netcoreapp2.1\WebApplication3.deps.json
+Q:\Desktop\repos\WebApplication3\bin\Debug\netcoreapp2.1\WebApplication3.runtimeconfig.json
+Q:\Desktop\repos\WebApplication3\bin\Debug\netcoreapp2.1\WebApplication3.runtimeconfig.dev.json
+Q:\Desktop\repos\WebApplication3\bin\Debug\netcoreapp2.1\WebApplication3.dll
+Q:\Desktop\repos\WebApplication3\bin\Debug\netcoreapp2.1\WebApplication3.pdb
+Q:\Desktop\repos\WebApplication3\bin\Debug\netcoreapp2.1\WebApplication3.Views.dll
+Q:\Desktop\repos\WebApplication3\bin\Debug\netcoreapp2.1\WebApplication3.Views.pdb
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.csprojAssemblyReference.cache
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.csproj.CoreCompileInputs.cache
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.RazorAssemblyInfo.cache
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.RazorAssemblyInfo.cs
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.AssemblyInfoInputs.cache
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.AssemblyInfo.cs
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.TagHelpers.input.cache
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.TagHelpers.output.cache
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.RazorCoreGenerate.cache
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.RazorTargetAssemblyInfo.cache
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.RazorTargetAssemblyInfo.cs
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.Views.pdb
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.dll
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.pdb
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.csproj.CopyComplete
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Pechi\Create.g.cshtml.cs
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Pechi\Delete.g.cshtml.cs
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Pechi\Details.g.cshtml.cs
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Pechi\Edit.g.cshtml.cs
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Pechi\Index.g.cshtml.cs
+Q:\Desktop\repos\WebApplication3\bin\Debug\netcoreapp2.1\ClassLibrary1.dll
+Q:\Desktop\repos\WebApplication3\bin\Debug\netcoreapp2.1\ClassLibrary1.pdb
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Home\Vvod.g.cshtml.cs
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Home\area.g.cshtml.cs
+Q:\Desktop\repos\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Home\Artist.g.cshtml.cs
+Q:\Desktop\repos - копия (4)\WebApplication3\bin\Debug\netcoreapp2.1\WebApplication3.deps.json
+Q:\Desktop\repos - копия (4)\WebApplication3\bin\Debug\netcoreapp2.1\WebApplication3.runtimeconfig.json
+Q:\Desktop\repos - копия (4)\WebApplication3\bin\Debug\netcoreapp2.1\WebApplication3.runtimeconfig.dev.json
+Q:\Desktop\repos - копия (4)\WebApplication3\bin\Debug\netcoreapp2.1\WebApplication3.dll
+Q:\Desktop\repos - копия (4)\WebApplication3\bin\Debug\netcoreapp2.1\WebApplication3.pdb
+Q:\Desktop\repos - копия (4)\WebApplication3\bin\Debug\netcoreapp2.1\WebApplication3.Views.dll
+Q:\Desktop\repos - копия (4)\WebApplication3\bin\Debug\netcoreapp2.1\WebApplication3.Views.pdb
+Q:\Desktop\repos - копия (4)\WebApplication3\bin\Debug\netcoreapp2.1\ClassLibrary1.dll
+Q:\Desktop\repos - копия (4)\WebApplication3\bin\Debug\netcoreapp2.1\ClassLibrary1.pdb
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.csprojAssemblyReference.cache
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.csproj.CoreCompileInputs.cache
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.RazorAssemblyInfo.cache
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.RazorAssemblyInfo.cs
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.AssemblyInfoInputs.cache
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.AssemblyInfo.cs
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.TagHelpers.input.cache
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.TagHelpers.output.cache
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.RazorCoreGenerate.cache
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Home\area.g.cshtml.cs
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Home\Artist.g.cshtml.cs
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Home\Vvod.g.cshtml.cs
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Pechi\Create.g.cshtml.cs
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Pechi\Delete.g.cshtml.cs
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Pechi\Details.g.cshtml.cs
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Pechi\Edit.g.cshtml.cs
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Pechi\Index.g.cshtml.cs
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.RazorTargetAssemblyInfo.cache
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.RazorTargetAssemblyInfo.cs
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.Views.pdb
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.csproj.CopyComplete
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.dll
+Q:\Desktop\repos - копия (4)\WebApplication3\obj\Debug\netcoreapp2.1\WebApplication3.pdb
