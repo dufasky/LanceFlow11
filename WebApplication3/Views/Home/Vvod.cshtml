@@ -2,215 +2,214 @@
 
 <style>
     table {
-        width: 100%; /* Ширина таблицы */
-        border: 0; /* Граница вокруг таблицы */
-        border-spacing: 7px 5px; /* Расстояние между границ */
+        width: 100%;
+        border: 0;
+        border-spacing: 7px 5px;
     }
 
-    td {
-        border: 1px solid #333; /* Граница вокруг ячеек */
-        padding: 5px; /* Поля в ячейках */
+    td, th {
+        border: 1px solid #333; 
+        padding: 5px 3px; 
     }
 
     .Dvig {
         width: 100%;
-        overflow: scroll; /*Полоса прокрутки*/
-        padding-top: 10px; /*отступ сверху*/
-        overflow-y: hidden; /*убран скролл справа*/
+        overflow: scroll;
+        padding-top: 10px; 
+        overflow-y: hidden;
     }
 
     .ish {
-        border: 0; /*отсутствие рамки*/
+        border: 0;
     }
 </style>
 
-<form action="/Home/Vvod" method="get">
-    <select name="VariantId" class="form-control">
-        @foreach(Variants variant in Model.Variants)
-        {
-            <option value="@variant.VariantId" selected="@(Model.CurrentVariantId == variant.VariantId ? true : false)">@variant.Name</option>
-        }
-    </select>
-    <button type="submit">OK</button>
+<h1 align="center" class="ish">Исходные данные для печи</h1>
+
+
+
+<form action="/Home/About" method="post">
+    <table align="center">
+        <thead>
+            <tr>
+                <th>Величина, ед. измерения</th>
+                <th>Значение</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Полезный объем печи, м3</td>
+                <td><input type="text" name="input.Vpolez" value="@Model.Data.Vpolez" /></td>
+            </tr>
+            <tr>
+                <td>Диаметр горна доменной печи, м</td>
+                <td><input type="text" name="input.DiGorn" value="@Model.Data.DiGorn" /></td>
+            </tr>
+            <tr>
+                <td>Производительность печи, т/сут</td>
+                <td><input type="text" name="input.Proizv" value="@Model.Data.Proizv" /></td>
+            </tr>
+            <tr>
+                <td>Число воздушных фурм, шт</td>
+                <td><input type="text" name="input.Nfurm" value="@Model.Data.Nfurm" /></td>
+            </tr>
+            <tr>
+                <td>Число работающих воздушных фурм, шт</td>
+                <td><input type="text" name="input.NrabFurm" value="@Model.Data.NrabFurm" /></td>
+            </tr>
+            <tr>
+                <td>Диаметр фурм, мм</td>
+                <td><input type="text" name="input.DiamFurm" value="@Model.Data.DiamFurm" /></td>
+            </tr>
+            <tr>
+                <td>Высов фурм, мм</td>
+                <td><input type="text" name="input.VisFurm" value="@Model.Data.VisFurm" /></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+
+
+    <h1 align="center" class="ish">Исходные данные для технологического процесса</h1>
+    <table align="center">
+        <thead>
+            <tr>
+                <th>Величина, ед. измерения</th>
+                <th>Значение</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>Расход дутья, м3/мин</td>
+                <td><input type="text" name="input.RashDut" value="@Model.Data.RashDut" /></td>
+            </tr>
+            <tr>
+                <td>Давление дутья, ати</td>
+                <td><input type="text" name="input.DavlDut" value="@Model.Data.DavlDut" /></td>
+            </tr>
+            <tr>
+                <td>Температура дутья, оС</td>
+                <td><input type="text" name="input.TDut" value="@Model.Data.TDut" /></td>
+            </tr>
+            <tr>
+                <td>Влажность дутья, г/м3</td>
+                <td><input type="text" name="input.VlazDut" value="@Model.Data.VlazDut" /></td>
+            </tr>
+            <tr>
+            <tr>
+                <td>Содержание кислорода в дутье, %</td>
+                <td><input type="text" name="input.SodKislorod" value="@Model.Data.SodKislorod" /></td>
+            </tr>
+            <tr>
+            <tr>
+                <td>Расход природного газа, м3/т чуг</td>
+                <td><input type="text" name="input.RashPrirGaz" value="@Model.Data.RashPrirGaz" /></td>
+            </tr>
+            <tr>
+                <td>Коэффициент сжатия фурменного очага (в плане)</td>
+                <td><input type="text" name="input.Kszh" value="@Model.Data.Kszh" /></td>
+            </tr>
+            <tr>
+                <td>Принятые потери расхода дутья по тракту, %</td>
+                <td><input type="text" name="input.PotPoTract" value="@Model.Data.PotPoTract" /></td>
+            </tr>
+            <tr>
+                <td>Удельный расход кокса, кг/т чуг</td>
+                <td><input type="text" name="input.UdRashKoks" value="@Model.Data.UdRashKoks" /></td>
+            </tr>
+            <tr>
+                <td>Реакционная способность кокса, %</td>
+                <td><input type="text" name="input.ReaKoks" value="@Model.Data.ReaKoks" /></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    <script>
+        $(function () { //проверка на галочки
+            function checkState() {
+                $('.s_inputdata thead tr td').each(function () {
+                    var index = $(this).index() + 1;
+                    var checked = $(this).find('input[type="checkbox"]').is(':checked');
+
+                    $('.s_inputdata tr td:nth-child(' + index + ')').each(function () {
+                        $(this).find('input').prop('readonly', !checked);
+                    });
+                })
+            }
+
+            $('.s_inputdata input[type="checkbox"]').on('change', checkState);
+
+            checkState();
+
+        });
+    </script>
+
+
+
+    <h1 align="center" class="ish">Исходные данные фурм</h1>
+    <div class="Dvig">
+        <table class="s_inputdata" align="center">
+            <thead>
+                <tr>
+                    <td>Номер фурмы</td>
+                    @for (int i = 0; i < Model.Data.Nfurm; i++)
+                    {
+                        <td align="center">
+                            @("Фурма" + (i + 1))<br />
+                            <input type="hidden" name="input.Furm[@i].NumberOfFurm" value="@(i+1)" />
+                            <input type="hidden" name="input.Furm.Index" value="@i" />
+                            <input type="checkbox" name="input.Furm[@i].isActual" value="true" checked="@Model.Data.Furm[i].isActual" />
+                        </td>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Расход газа на фурму, м3/ч</td>
+                    @for (int i = 0; i < 20; i++)
+                    {
+                        <td>
+                            <input type="text" name="input.Furm[@i].RashGazNaF" value="@Model.Data.Furm[i].RashGazNaF" class="form-control" style="width: 70px;" />
+                        </td>
+                    }
+                </tr>
+                <tr>
+                    <td>Расход воды на фурму, м3/ч</td>
+                    @for (int i = 0; i < 20; i++)
+                    {
+                        <td>
+                            <input type="text" name="input.Furm[@i].RashVodiNaF" value="@Model.Data.Furm[i].RashVodiNaF" class="form-control" style="width: 70px;" />
+                        </td>
+                    }
+                </tr>
+                <tr>
+                    <td>Тем-рный перепад воды на фурме, оС</td>
+                    @for (int i = 0; i < 20; i++)
+                    {
+                        <td>
+                            <input type="text" name="input.Furm[@i].Tperepad" value="@Model.Data.Furm[i].Tperepad" class="form-control" style="width: 70px;" />
+                        </td>
+                    }
+                </tr>
+                <tr>
+                    <td>требуемого значения теоретич. тем-ры горения, &deg;С</td>
+                    @for (int i = 0; i < 20; i++)
+                    {
+                        <td>
+                            <input type="text" name="input.Furm[@i].TrebZnTeor" value="@Model.Data.Furm[i].TrebZnTeor" class="form-control" style="width: 70px;" />
+                        </td>
+                    }
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Рассчитать</button>
 </form>
-
-
-    <h1 align="center" class="ish">Исходные данные для печи</h1>
-
-
-
-    <form action="/Home/About" method="post">
-        <table align="center">
-            <tbody>
-                <tr>
-                    <td>Полезный объем печи, м3</td>
-                    <td><input type="text" name="input.Vpolez" value="@Model.Data.Vpolez" /></td> 
-                </tr>
-                <tr>
-                    <td>Диаметр горна доменной печи, м</td>
-                    <td><input type="text" name="input.DiGorn" value="@Model.Data.DiGorn" /></td>
-                </tr>
-                <tr>
-                    <td>Производительность печи, т/сут</td>
-                    <td><input type="text" name="input.Proizv" value="@Model.Data.Proizv" /></td>
-                </tr>
-                <tr>
-                    <td>Число воздушных фурм, шт</td>
-                    <td><input type="text" name="input.Nfurm" value="@Model.Data.Nfurm" /></td>
-                </tr>
-                <tr>
-                    <td>Число работающих воздушных фурм, шт</td>
-                    <td><input type="text" name="input.NrabFurm" value="@Model.Data.NrabFurm" /></td>
-                </tr>
-                <tr>
-                    <td>Диаметр фурм, мм</td>
-                    <td><input type="text" name="input.DiamFurm" value="@Model.Data.DiamFurm" /></td>
-                </tr>
-                <tr>
-                    <td>Высов фурм, мм</td>
-                    <td><input type="text" name="input.VisFurm" value="@Model.Data.VisFurm" /></td>
-                </tr>
-
-            </tbody>
-        </table>
-
-
-
-
-        <h1 align="center" class="ish">Исходные данные для технологического процесса</h1>
-        <table align="center">
-            <tbody>
-
-                <tr>
-                    <td>Расход дутья, м3/мин</td>
-                    <td><input type="text" name="input.RashDut" value="@Model.Data.RashDut" /></td>
-                </tr>
-                <tr>
-                    <td>Давление дутья, ати</td>
-                    <td><input type="text" name="input.DavlDut" value="@Model.Data.DavlDut" /></td>
-                </tr>
-                <tr>
-                    <td>Температура дутья, оС</td>
-                    <td><input type="text" name="input.TDut" value="@Model.Data.TDut" /></td>
-                </tr>
-                <tr>
-                    <td>Влажность дутья, г/м3</td>
-                    <td><input type="text" name="input.VlazDut" value="@Model.Data.VlazDut" /></td>
-                </tr>
-                <tr>
-                <tr>
-                    <td>Содержание кислорода в дутье, %</td>
-                    <td><input type="text" name="input.SodKislorod" value="@Model.Data.SodKislorod" /></td>
-                </tr>
-                <tr>
-                <tr>
-                    <td>Расход природного газа, м3/т чуг</td>
-                    <td><input type="text" name="input.RashPrirGaz" value="@Model.Data.RashPrirGaz" /></td>
-                </tr>
-                <tr>
-                    <td>Коэффициент сжатия фурменного очага (в плане)</td>
-                    <td><input type="text" name="input.Kszh" value="@Model.Data.Kszh" /></td>
-                </tr>
-                <tr>
-                    <td>Принятые потери расхода дутья по тракту, %</td>
-                    <td><input type="text" name="input.PotPoTract" value="@Model.Data.PotPoTract" /></td>
-                </tr>
-                <tr>
-                    <td>Удельный расход кокса, кг/т чуг</td>
-                    <td><input type="text" name="input.UdRashKoks" value="@Model.Data.UdRashKoks" /></td>
-                </tr>
-                <tr>
-                    <td>Реакционная способность кокса, %</td>
-                    <td><input type="text" name="input.ReaKoks" value="@Model.Data.ReaKoks" /></td>
-                </tr>
-            </tbody>
-        </table>
-  
-
-
-        <script>
-            $(function () { //проверка на галочки
-                function checkState() {
-                    $('.s_inputdata thead tr td').each(function () {
-                        var index = $(this).index() + 1;
-                        var checked = $(this).find('input[type="checkbox"]').is(':checked');
-
-                        $('.s_inputdata tr td:nth-child(' + index + ')').each(function () {
-                            $(this).find('input').prop('readonly', !checked);
-                        });
-                    })
-                }
-
-                $('.s_inputdata input[type="checkbox"]').on('change', checkState);
-
-                checkState();
-
-            });
-        </script>
-
-
-
-        <h1 align="center" class="ish">Исходные данные фурм</h1>
-        <div class="Dvig">
-            <table class="s_inputdata" align="center">
-                <thead>
-                    <tr>
-                        <td>Номер фурмы</td>
-                        @for (int i = 0; i < Model.Data.Nfurm; i++)
-                        {
-                            <td align="center">
-                                @("Фурма" + (i + 1))<br />
-                                <input type="hidden" name="input.Furm[@i].NumberOfFurm" value="@(i+1)" />
-                                <input type="hidden" name="input.Furm.Index" value="@i" />
-                                <input type="checkbox" name="input.Furm[@i].isActual" value="true" checked="@Model.Data.Furm[i].isActual" />
-                            </td>
-                        }
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Расход газа на фурму, м3/ч</td>
-                        @for (int i = 0; i < 20; i++)
-                        {
-                            <td>
-                                <input type="text" name="input.Furm[@i].RashGazNaF" value="@Model.Data.Furm[i].RashGazNaF" class="form-control" style="width: 70px;" />
-                            </td>
-                        }
-                    </tr>
-                    <tr>
-                        <td>Расход воды на фурму, м3/ч</td>
-                        @for (int i = 0; i < 20; i++)
-                        {
-                            <td>
-                                <input type="text" name="input.Furm[@i].RashVodiNaF" value="@Model.Data.Furm[i].RashVodiNaF" class="form-control" style="width: 70px;" />
-                            </td>
-                        }
-                    </tr>
-                    <tr>
-                        <td>Тем-рный перепад воды на фурме, оС</td>
-                        @for (int i = 0; i < 20; i++)
-                        {
-                            <td>
-                                <input type="text" name="input.Furm[@i].Tperepad" value="@Model.Data.Furm[i].Tperepad" class="form-control" style="width: 70px;" />
-                            </td>
-                        }
-                    </tr>
-                    <tr>
-                        <td>требуемого значения теоретич. тем-ры горения, &deg;С</td>
-                        @for (int i = 0; i < 20; i++)
-                        {
-                            <td>
-                                <input type="text" name="input.Furm[@i].TrebZnTeor" value="@Model.Data.Furm[i].TrebZnTeor" class="form-control" style="width: 70px;" />
-                            </td>
-                        }
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-
-
-        <button type="submit">Рассчитать</button>
-    </form>
 
 

@@ -14,17 +14,19 @@ namespace WebApplication3.Controllers
 {
     public class HomeController : Controller
     {
-        public DcContext context;
+        public DcContext _context;
 
-        public HomeController(DcContext _context)
+        public HomeController(DcContext context)
         {
-            context = _context;
+            this._context = context;
 
         }
 
         public IActionResult Index()
         {
-            return View();
+            List<Variants> model = _context.Variants.ToList();
+
+            return View(model);
         }
 
         [HttpPost]//пост когда нажимаем кнопку отправить 
@@ -55,13 +57,13 @@ namespace WebApplication3.Controllers
             IndexViewModel model = new IndexViewModel();
 
             model.CurrentVariantId = VariantId;
-            model.Variants = context.Variants.ToList();
+            model.Variants = _context.Variants.ToList();
             model.Data.SetDefaultData();
 
             // 
-            List<DanniePoFurmam> data = context.DanniePoFurmam.Where(x => x.VariantId == VariantId).ToList();
+            List<DanniePoFurmam> data = _context.DanniePoFurmam.Where(x => x.VariantId == VariantId).ToList();
 
-            ProcessOfTechnology data2 = context.ProcessOfTechnology.FirstOrDefault(x => x.VariantId == VariantId);
+            ProcessOfTechnology data2 = _context.ProcessOfTechnology.FirstOrDefault(x => x.VariantId == VariantId);
 
             //model.Data.
 
