@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.572
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication3", "WebApplication3\WebApplication3.csproj", "{AC770980-342B-469F-9664-D72FB6673618}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LanceFlow", "WebApplication3\LanceFlow.csproj", "{AC770980-342B-469F-9664-D72FB6673618}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{D6E9AF8B-3612-430A-87D3-A871F1744E1E}"
 EndProject

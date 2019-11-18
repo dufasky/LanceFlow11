@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using ClassLibrary1;
 using FurmaLibrary;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication3.Models;
@@ -23,6 +22,13 @@ namespace WebApplication3.Controllers
         }
 
         public IActionResult Index()
+        {
+            List<Variants> model = _context.Variants.ToList();
+
+            return View(model);
+        }
+
+        public IActionResult Modeling()
         {
             List<Variants> model = _context.Variants.ToList();
 
@@ -96,27 +102,6 @@ namespace WebApplication3.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-        [HttpPost]
-        public async Task<IActionResult> Contact(CalculationModel model)
-        {
-            ModelState.Clear();
-            switch (model.calculationMethod)
-            {
-                case CalculationMethod.Addition:
-                    model.Result = model.FirstNumber + model.SecondNumber;
-                    break;
-                case CalculationMethod.Subtraction:
-                    model.Result = model.FirstNumber - model.SecondNumber;
-                    break;
-                case CalculationMethod.Multiplication:
-                    model.Result = model.FirstNumber * model.SecondNumber;
-                    break;
-                case CalculationMethod.Division:
-                    model.Result = model.FirstNumber / model.SecondNumber;
-                    break;
-            }
-            return View(model);
         }
     }
 }

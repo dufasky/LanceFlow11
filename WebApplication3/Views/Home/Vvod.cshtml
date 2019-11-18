@@ -1,35 +1,10 @@
 ﻿@model WebApplication3.Models.HomeViewModels.IndexViewModel
 
-<style>
-    table {
-        width: 100%;
-        border: 0;
-        border-spacing: 7px 5px;
-    }
-
-    td, th {
-        border: 1px solid #333; 
-        padding: 5px 3px; 
-    }
-
-    .Dvig {
-        width: 100%;
-        overflow: scroll;
-        padding-top: 10px; 
-        overflow-y: hidden;
-    }
-
-    .ish {
-        border: 0;
-    }
-</style>
 
 <h1 align="center" class="ish">Исходные данные для печи</h1>
 
-
-
 <form action="/Home/About" method="post">
-    <table align="center">
+    <table class="table" align="center">
         <thead>
             <tr>
                 <th>Величина, ед. измерения</th>
@@ -39,31 +14,31 @@
         <tbody>
             <tr>
                 <td>Полезный объем печи, м3</td>
-                <td><input type="text" name="input.Vpolez" value="@Model.Data.Vpolez" /></td>
+                <td><input type="text" name="input.Vpolez" value="@Model.Data.Vpolez" class="form-control input-100" /></td>
             </tr>
             <tr>
                 <td>Диаметр горна доменной печи, м</td>
-                <td><input type="text" name="input.DiGorn" value="@Model.Data.DiGorn" /></td>
+                <td><input type="text" name="input.DiGorn" value="@Model.Data.DiGorn" class="form-control input-100" /></td>
             </tr>
             <tr>
                 <td>Производительность печи, т/сут</td>
-                <td><input type="text" name="input.Proizv" value="@Model.Data.Proizv" /></td>
+                <td><input type="text" name="input.Proizv" value="@Model.Data.Proizv" class="form-control input-100" /></td>
             </tr>
             <tr>
                 <td>Число воздушных фурм, шт</td>
-                <td><input type="text" name="input.Nfurm" value="@Model.Data.Nfurm" /></td>
+                <td><input type="text" name="input.Nfurm" value="@Model.Data.Nfurm" class="form-control input-100" /></td>
             </tr>
             <tr>
                 <td>Число работающих воздушных фурм, шт</td>
-                <td><input type="text" name="input.NrabFurm" value="@Model.Data.NrabFurm" /></td>
+                <td><input type="text" name="input.NrabFurm" value="@Model.Data.NrabFurm" class="form-control input-100" /></td>
             </tr>
             <tr>
                 <td>Диаметр фурм, мм</td>
-                <td><input type="text" name="input.DiamFurm" value="@Model.Data.DiamFurm" /></td>
+                <td><input type="text" name="input.DiamFurm" value="@Model.Data.DiamFurm" class="form-control input-100" /></td>
             </tr>
             <tr>
                 <td>Высов фурм, мм</td>
-                <td><input type="text" name="input.VisFurm" value="@Model.Data.VisFurm" /></td>
+                <td><input type="text" name="input.VisFurm" value="@Model.Data.VisFurm" class="form-control input-100" /></td>
             </tr>
 
         </tbody>
@@ -73,7 +48,7 @@
 
 
     <h1 align="center" class="ish">Исходные данные для технологического процесса</h1>
-    <table align="center">
+    <table class="table" align="center">
         <thead>
             <tr>
                 <th>Величина, ед. измерения</th>
@@ -84,45 +59,45 @@
 
             <tr>
                 <td>Расход дутья, м3/мин</td>
-                <td><input type="text" name="input.RashDut" value="@Model.Data.RashDut" /></td>
+                <td><input type="text" name="input.RashDut" value="@Model.Data.RashDut" class="form-control input-100" /></td>
             </tr>
             <tr>
                 <td>Давление дутья, ати</td>
-                <td><input type="text" name="input.DavlDut" value="@Model.Data.DavlDut" /></td>
+                <td><input type="text" name="input.DavlDut" value="@Model.Data.DavlDut" class="form-control input-100" /></td>
             </tr>
             <tr>
                 <td>Температура дутья, оС</td>
-                <td><input type="text" name="input.TDut" value="@Model.Data.TDut" /></td>
+                <td><input type="text" name="input.TDut" value="@Model.Data.TDut" class="form-control input-100" /></td>
             </tr>
             <tr>
                 <td>Влажность дутья, г/м3</td>
-                <td><input type="text" name="input.VlazDut" value="@Model.Data.VlazDut" /></td>
+                <td><input type="text" name="input.VlazDut" value="@Model.Data.VlazDut" class="form-control input-100" /></td>
             </tr>
             <tr>
             <tr>
                 <td>Содержание кислорода в дутье, %</td>
-                <td><input type="text" name="input.SodKislorod" value="@Model.Data.SodKislorod" /></td>
+                <td><input type="text" name="input.SodKislorod" value="@Model.Data.SodKislorod" class="form-control input-100" /></td>
             </tr>
             <tr>
             <tr>
                 <td>Расход природного газа, м3/т чуг</td>
-                <td><input type="text" name="input.RashPrirGaz" value="@Model.Data.RashPrirGaz" /></td>
+                <td><input type="text" name="input.RashPrirGaz" value="@Model.Data.RashPrirGaz" class="form-control input-100" /></td>
             </tr>
             <tr>
                 <td>Коэффициент сжатия фурменного очага (в плане)</td>
-                <td><input type="text" name="input.Kszh" value="@Model.Data.Kszh" /></td>
+                <td><input type="text" name="input.Kszh" value="@Model.Data.Kszh" class="form-control input-100" /></td>
             </tr>
             <tr>
                 <td>Принятые потери расхода дутья по тракту, %</td>
-                <td><input type="text" name="input.PotPoTract" value="@Model.Data.PotPoTract" /></td>
+                <td><input type="text" name="input.PotPoTract" value="@Model.Data.PotPoTract" class="form-control input-100" /></td>
             </tr>
             <tr>
                 <td>Удельный расход кокса, кг/т чуг</td>
-                <td><input type="text" name="input.UdRashKoks" value="@Model.Data.UdRashKoks" /></td>
+                <td><input type="text" name="input.UdRashKoks" value="@Model.Data.UdRashKoks" class="form-control input-100" /></td>
             </tr>
             <tr>
                 <td>Реакционная способность кокса, %</td>
-                <td><input type="text" name="input.ReaKoks" value="@Model.Data.ReaKoks" /></td>
+                <td><input type="text" name="input.ReaKoks" value="@Model.Data.ReaKoks" class="form-control input-100" /></td>
             </tr>
         </tbody>
     </table>
@@ -153,7 +128,7 @@
 
     <h1 align="center" class="ish">Исходные данные фурм</h1>
     <div class="Dvig">
-        <table class="s_inputdata" align="center">
+        <table class="table s_inputdata" align="center">
             <thead>
                 <tr>
                     <td>Номер фурмы</td>

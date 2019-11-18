@@ -59,17 +59,19 @@ namespace FurmaLibrary
                 Furm[i].RasOtnos = Furm[i].FactRashDut / SrFactRashDut;
                 Furm[i].KolUgler = 1.07143 * Furm[i].FactRashDut * 0.01 * SodKislorod;
                 Furm[i].RashPGNaKG = (Furm[i].RashGazNaF / 60) / Furm[i].KolUgler;
-                Furm[i].TeplosodGorn= (9800 + RashUgl * TeplosodDut + TeplosodKoks + Furm[i].RashPGNaKG * (1590 + RashGaz * TeplosodDut)) / (RashGorn + Furm[i].RashPGNaKG * VihGorn);
-                Furm[i].TeorTGor= 0.6113 * Furm[i].TeplosodGorn + 165;
-                Furm[i].VIstDut= ((Furm[i].FactRashDut + Furm[i].RashGazNaF / 60) * (TDut + 273) * 77.73) / (DiamFurm * DiamFurm * (1 + DavlDut));
-                Furm[i].KinetW= ((Furm[i].FactRashDut * 1.293 + Furm[i].RashGazNaF * 0.717 / 60) / 1177) * VIstDut * VIstDut;
-                Furm[i].ProtZoniCirk= 0.8039 + 0.00005 * KinetW - 0.0000000005 * KinetW * KinetW;
-                Furm[i].ProtZoniOkisl= ProtZoniCirk + 0.29;
-                Furm[i].OtnoshVPGD= ((Furm[i].RashGazNaF / 60) / Furm[i].FactRashDut) * 100;
-                Furm[i].TeplosodPriZadZn1= (Furm[i].TrebZnTeor - 165) / 0.6113;
+                Furm[i].TeplosodGorn = (9800 + RashUgl * TeplosodDut + TeplosodKoks + Furm[i].RashPGNaKG * (1590 + RashGaz * TeplosodDut)) / (RashGorn + Furm[i].RashPGNaKG * VihGorn);
+                Furm[i].TeorTGor = 0.6113 * Furm[i].TeplosodGorn + 165;
+                
+                Furm[i].VIstDut = ((Furm[i].FactRashDut + Furm[i].RashGazNaF / 60) * (TDut + 273) * 77.73) / (DiamFurm * DiamFurm * (1 + DavlDut));
+                Furm[i].KinetW = ((Furm[i].FactRashDut * 1.293 + Furm[i].RashGazNaF * 0.717 / 60) / 1177) * VIstDut * VIstDut;
+                
+                Furm[i].ProtZoniCirk = 0.8039 + 0.00005 * KinetW - 0.0000000005 * KinetW * KinetW;
+                Furm[i].ProtZoniOkisl = ProtZoniCirk + 0.29;
+                Furm[i].OtnoshVPGD = ((Furm[i].RashGazNaF / 60) / Furm[i].FactRashDut) * 100;
+                Furm[i].TeplosodPriZadZn1 = (Furm[i].TrebZnTeor - 165) / 0.6113;
                 Furm[i].RashPodderz = (9800 + RashUgl * TeplosodDut + TeplosodKoks - Furm[i].TeplosodPriZadZn1 * RashGorn) / (Furm[i].TeplosodPriZadZn1 * VihGorn - (1590 + RashGaz * TeplosodDut));
-                Furm[i].TrebRashGaz= Furm[i].RashPodderz * Furm[i].KolUgler * 60;
-                Furm[i].SFurmOchag= 3.14 * ProtZoniCirk * ProtZoniCirk / 4;
+                Furm[i].TrebRashGaz = Furm[i].RashPodderz * Furm[i].KolUgler * 60;
+                Furm[i].SFurmOchag = 3.14 * ProtZoniCirk * ProtZoniCirk / 4;
               
             }
         }
@@ -174,7 +176,6 @@ namespace FurmaLibrary
             {
                 return 1.4851 + 0.000118 * TDut;
             }
-
         }
         public double TepAz
         {
@@ -254,9 +255,6 @@ namespace FurmaLibrary
             }
         }
         #endregion
-     
-
-
     }
 
 }
