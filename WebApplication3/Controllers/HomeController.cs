@@ -71,7 +71,13 @@ namespace WebApplication3.Controllers
 
             ProcessOfTechnology data2 = _context.ProcessOfTechnology.FirstOrDefault(x => x.VariantId == VariantId);
 
-            //model.Data.
+            model.Data.Proizv = data2.Proizv;
+            model.Data.RashDut = data2.RashDut;
+            model.Data.SodKislorod = data2.SodKislorod;
+            model.Data.UdRashKoks = data2.UdRashKoks;
+            model.Data.TDut = data2.TDut;
+            model.Data.DavlDut = data2.DavlDut;
+            model.Data.VlazDut = data2.VlazDut;
 
             model.Data.Furm.Clear();
 

@@ -46,7 +46,7 @@
                         <td>@Extensions.RoundSmart(Model.SumDlinOs)</td>
                     </tr>
                     <tr>
-                        <td>Перекрытие (+), разобщение (-) смежных фурменных очагов, м </td>
+                        <td>Перекрытие (+), разобщение (-) смежных фурменных очагов, м</td>
                         <td>@Math.Round(Model.Perecr, 2)</td>
                     </tr>
                 </tbody>
@@ -66,7 +66,6 @@
                                     <input type="hidden" name="input.Furm.Index" value="@i" />
                                 </th>
                             }
-
                         </tr>
                     </thead>
                     <tbody>
@@ -82,20 +81,17 @@
                         </tr>
 
                         <tr>
-                            <th>Факт. расход дутья через фурму по прибору,м3/мин</th>
+                            <th>Расход дутья через фурму по прибору, м3/мин</th>
                             @for (int i = 0; i < 20; i++)
                             {
                                 <td>@Extensions.RoundSmart(Model.Furm[i].RashDutPribor)</td>
-
                             }
-
                         </tr>
                         <tr>
-                            <th>Факт. расход дутья через фурму,м3/мин</th>
+                            <th>Факт. расход дутья через фурму, м3/мин</th>
                             @for (int i = 0; i < 20; i++)
                             {
                                 <td>@Extensions.RoundSmart(Model.Furm[i].FactRashDut)</td>
-
                             }
                             @*<td><input type="text" name="input.SrFactRashDut" /></td>*@
                         </tr>
@@ -134,7 +130,7 @@
                             }
                         </tr>
                         <tr>
-                            <th>Теорет. тем-ра горения, оС</th>
+                            <th>Теорет. тем-ра горения, &deg;С</th>
                             @for (int i = 0; i < 20; i++)
                             {
                                 <td>@Extensions.RoundSmart(Model.Furm[i].TeorTGor)</td>
@@ -142,7 +138,7 @@
                             }
                         </tr>
                         <tr>
-                            <th>Скорость истечения дутья из фурм,м/с</th>
+                            <th>Скорость истечения дутья из фурм, м/с</th>
                             @for (int i = 0; i < 20; i++)
                             {
                                 <td>@Extensions.RoundSmart(Model.Furm[i].VIstDut)</td>
@@ -166,7 +162,7 @@
                             }
                         </tr>
                         <tr>
-                            <th>Протяженность окислительной зоны , м</th>
+                            <th>Протяженность окислительной зоны, м</th>
                             @for (int i = 0; i < 20; i++)
                             {
                                 <td>@Extensions.RoundSmart(Model.Furm[i].ProtZoniOkisl)</td>
@@ -203,7 +199,7 @@
                             }
                         </tr>
                         <tr>
-                            <th>Площадь фурм. Очага, м2</th>
+                            <th>Площадь фурм. очага, м2</th>
                             @for (int i = 0; i < 20; i++)
                             {
                                 <td>@Extensions.RoundSmart(Model.Furm[i].SFurmOchag)</td>
