@@ -1,5 +1,16 @@
 ﻿@model FurmaGeneral
 
+
+
+
+
+
+<!--Страница результатов расчетов -->
+
+
+
+
+
 <div class="row" style="margin-top: 10px;">
     <ul class="nav nav-pills" role="tablist">
         <li class="nav-item">
@@ -463,7 +474,42 @@
             <div style="width: 100%;">&nbsp;</div>
             @* ГРАФИК РАДАР скорость истечения дутья VIstDut *@
             <canvas id="marksChart1" width="940" height="564"></canvas>
+
+
+
+
+
+
+
+
+
+
+            <canvas id="c1" width="1200" height="1200"></canvas> @*для графика на канвасе*@
+
+
         </div>
+
+        <script>
+                   @*var dataVIstDut = @Json.Serialize(Model.Furm.Select(x => x.VIstDut).ToList());
+            var NFurm = @Model.Nfurm;
+            var NFurms = [];
+
+            var innerHtml = "";
+            for (var i = 1; i <= NFurm; i++) {
+                NFurms.push(i);
+                 innerHtml += '<div class="element">Element</div>';
+            }*@
+
+            }
+        </script>
+
+
+
+
+
+
+
+
 
         <script>
             var dataFactRashDut = @Json.Serialize(Model.Furm.Select(x => x.FactRashDut).ToList());
@@ -697,8 +743,8 @@
                     ticks: {
                         beginAtZero: true,
                         min: 0,
-                        max: 300,
-                        stepSize: 20
+                        max: 900,
+                        stepSize: 100
                     },
                     pointLabels: {
                         fontSize: 18
@@ -714,6 +760,128 @@
                 data: marksData,
                 options: chartOptions
             });
+        </script>
+
+
+
+
+        <script>
+        var canvas = document.getElementById('c1');
+
+
+        var pi = Math.PI;
+        var x = 350; //центр окружности X
+        var y = 350; //центр окружности Y
+        var radius = 300;
+        //var kolvofurm = 5;
+
+
+        var kolvofurm = @Model.Furm.Count;
+
+        var razmerUgla = 2 * Math.PI / kolvofurm;
+
+
+
+        var shirina = 50;
+        var dlina = 130;
+
+        let arrTemp = @Json.Serialize(Model.Furm.Select(x => x.TeorTGor).ToArray());
+        let arrDlina = @Json.Serialize(Model.Furm.Select(x => x.ProtZoniOkisl).ToArray());
+        let arrShir = @Json.Serialize(Model.Furm.Select(x => x.ProtZoniOkisl*0.75).ToArray());
+        //let arrTemp = [1850, 2100, 2000, 2150, 2300];
+        //let arrDlina = [102, 89, 116, 100, 110];
+        //let arrShir = [33, 22, 39, 43, 50];
+        var RGB = 0;
+
+        //ОСИ КООРДИНАТ
+        var ctx1 = canvas.getContext('2d');
+
+        ctx1.beginPath();
+        ctx1.strokeStyle = "blue";
+        ctx1.lineWidth = "1";
+        ctx1.moveTo(x, y * 0 + (y - radius));
+        ctx1.lineTo(x, y * 2 - (y - radius));
+
+        ctx1.moveTo(x * 2 - (x - radius), y);
+        ctx1.lineTo(x * 0 + (x - radius), y);
+
+        ctx1.closePath();
+        ctx1.fill();
+        ctx1.stroke();
+
+
+
+        //ОКРУЖНОСТЬ
+
+        ctx1.beginPath();
+        ctx1.lineWidth = 1;
+        ctx1.strokeStyle = "red";
+        ctx1.fillStyle = "yellow";
+        ctx1.arc(x, y, radius, 0, 2 * pi, false);
+
+        ctx1.closePath();
+        ctx1.fill();
+        ctx1.stroke();
+
+
+        ctx1.save();
+        ctx1.restore();
+
+        //СВЕЧА
+
+
+
+        //ЦИКЛ С ЛИНИЯМИ УГЛОВ
+        for (var i = 0; i < kolvofurm; i++) {
+            ctx1.beginPath();
+            ctx1.lineWidth = 1;
+            ctx1.strokeStyle = "red";
+            ctx1.fillStyle = "yellow";
+            ctx1.arc(x + radius * Math.cos(i * razmerUgla), y - radius * Math.sin(razmerUgla * i), 1, 0, 2 * pi, false);
+
+            ctx1.moveTo(x, y);
+            ctx1.fill();
+            ctx1.stroke();
+
+
+            ctx1.beginPath();
+
+            var temp_x = x + radius * Math.cos(i * razmerUgla);
+            var temp_y = y - radius * Math.sin(razmerUgla * i);
+
+            var vistup = 1.05;
+
+            temp_x += 0 - vistup * 130 * Math.cos(i * razmerUgla) - 50 * Math.sin(i * razmerUgla);
+            temp_y += 0 + vistup * 130 * Math.sin(i * razmerUgla) - 50 * Math.cos(i * razmerUgla);
+
+
+
+
+            RGB = (arrTemp[i] - 1800) / 500 * 255;  //ПРОВЕРКА ЕСЛИ НЕ В ДИАПАЗОНЕ!!!!!
+            shirina = (arrShir[i])*50; //заглушка для размеров
+            dlina = (arrDlina[i])*50;//заглушка для размеров
+
+
+
+
+
+            ctx1.fillStyle = "rgb(250," + RGB + ",0)";
+
+            ctx1.translate(temp_x, temp_y); //относительно какой точки крутим
+            ctx1.rotate(- razmerUgla * i); //угол поворота в градусах
+
+
+            ctx1.strokeStyle = "blue";
+            ctx1.moveTo(0, 50);
+            ctx1.quadraticCurveTo(0, 50 - shirina, 0 + dlina, 50); //точка искривления, конечные кординаты
+            ctx1.quadraticCurveTo(0, 50 + shirina, 0, 50);
+
+            ctx1.fill();
+
+            ctx1.setTransform(1, 0, 0, 1, 0, 0);
+
+
+        }
         </script>
 
     </div>

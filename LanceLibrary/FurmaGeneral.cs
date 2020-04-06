@@ -63,7 +63,8 @@ namespace FurmaLibrary
         {
             get
             {
-                if (Furm.Count == 0) return 0;
+                if (Furm.Count == 0)
+                    return 0;
 
                 return Furm.Sum(x => x.RashGazNaF) * 24d / Proizv;
             }
@@ -269,8 +270,8 @@ namespace FurmaLibrary
 
                 // Furm[i].ProtZoniCirk = 0.8039 + 0.00005 * KinetW - 0.0000000005 * KinetW * KinetW;
                 // или
-                Furm[i].ProtZoniCirk = 0.6386 + 0.0001 * Furm[i].KinetW - 0.000000002 * Furm[i].KinetW * Furm[i].KinetW;
-
+               // Furm[i].ProtZoniCirk = 0.6386 + 0.0001 * Furm[i].KinetW - 0.000000002 * Furm[i].KinetW * Furm[i].KinetW;
+                Furm[i].ProtZoniCirk = 0.8039 + 0.00005 * Furm[i].KinetW - 0.0000000005 * Furm[i].KinetW * Furm[i].KinetW;
                 //Furm[i].ProtZoniOkisl = ProtZoniCirk + 0.29;
                 // или
                 Furm[i].ProtZoniOkisl = Furm[i].ProtZoniCirk + (0.0187 * ReaKoks - 0.3531);
