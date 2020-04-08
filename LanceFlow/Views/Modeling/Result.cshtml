@@ -484,7 +484,7 @@
 
 
 
-            <canvas id="c1" width="1200" height="1200"></canvas> @*для графика на канвасе*@
+            <canvas id="c1" width="900" height="900"></canvas> @*для графика на канвасе*@
 
 
         </div>
@@ -770,9 +770,9 @@
 
 
         var pi = Math.PI;
-        var x = 350; //центр окружности X
-        var y = 350; //центр окружности Y
-        var radius = 300;
+        var x = 450; //центр окружности X
+        var y = 450; //центр окружности Y
+        var radius = 250;
         //var kolvofurm = 5;
 
 
@@ -849,7 +849,7 @@
             var temp_x = x + radius * Math.cos(i * razmerUgla);
             var temp_y = y - radius * Math.sin(razmerUgla * i);
 
-            var vistup = 1.05;
+            var vistup = 0;
 
             temp_x += 0 - vistup * 130 * Math.cos(i * razmerUgla) - 50 * Math.sin(i * razmerUgla);
             temp_y += 0 + vistup * 130 * Math.sin(i * razmerUgla) - 50 * Math.cos(i * razmerUgla);
