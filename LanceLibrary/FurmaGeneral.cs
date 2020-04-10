@@ -270,8 +270,8 @@ namespace FurmaLibrary
 
                 // Furm[i].ProtZoniCirk = 0.8039 + 0.00005 * KinetW - 0.0000000005 * KinetW * KinetW;
                 // или
-               // Furm[i].ProtZoniCirk = 0.6386 + 0.0001 * Furm[i].KinetW - 0.000000002 * Furm[i].KinetW * Furm[i].KinetW;
-                Furm[i].ProtZoniCirk = 0.8039 + 0.00005 * Furm[i].KinetW - 0.0000000005 * Furm[i].KinetW * Furm[i].KinetW;
+                Furm[i].ProtZoniCirk = 0.6386 + 0.0001 * Furm[i].KinetW - 0.000000002 * Furm[i].KinetW * Furm[i].KinetW;
+               // Furm[i].ProtZoniCirk = 0.8039 + 0.00005 * Furm[i].KinetW - 0.0000000005 * Furm[i].KinetW * Furm[i].KinetW;
                 //Furm[i].ProtZoniOkisl = ProtZoniCirk + 0.29;
                 // или
                 Furm[i].ProtZoniOkisl = Furm[i].ProtZoniCirk + (0.0187 * ReaKoks - 0.3531);
@@ -280,7 +280,7 @@ namespace FurmaLibrary
                 Furm[i].TeplosodPriZadZn1 = (Furm[i].TrebZnTeor - 165) / 0.6113;
                 Furm[i].RashPodderz = (9800 + RashUgl * TeplosodDut + TeplosodKoks - Furm[i].TeplosodPriZadZn1 * RashGorn) / (Furm[i].TeplosodPriZadZn1 * VihGorn - (1590 + RashGaz * TeplosodDut));
                 Furm[i].TrebRashGaz = Furm[i].RashPodderz * Furm[i].KolUgler * 60;
-                Furm[i].SFurmOchag = 3.14 * ProtZoniCirk * ProtZoniCirk / 4;
+                Furm[i].SFurmOchag = 3.14 * Furm[i].ProtZoniCirk * Furm[i].ProtZoniCirk / 4;
 
             }
         }
