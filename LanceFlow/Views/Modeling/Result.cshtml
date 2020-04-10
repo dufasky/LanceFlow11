@@ -484,7 +484,7 @@
 
 
 
-            <canvas id="c1" width="900" height="900"></canvas> @*для графика на канвасе*@
+            <canvas id="c1" width="700" height="700"></canvas> @*для графика на канвасе*@
 
 
         </div>
@@ -770,9 +770,10 @@
 
 
         var pi = Math.PI;
-        var x = 450; //центр окружности X
-        var y = 450; //центр окружности Y
-        var radius = 250;
+        var x = 350; //центр окружности X
+        var y = 350; //центр окружности Y
+            var radius = 250;
+            var radius2 = 270;
         //var kolvofurm = 5;
 
 
@@ -794,38 +795,92 @@
         var RGB = 0;
 
         //ОСИ КООРДИНАТ
-        var ctx1 = canvas.getContext('2d');
+          var ctx1 = canvas.getContext('2d');
 
+
+
+
+    //ОКРУЖНОСТЬ
+
+      ctx1.beginPath();
+
+    ctx1.lineWidth = 1;
+    ctx1.strokeStyle = "black";
+    ctx1.fillStyle = "brown";
+    ctx1.arc(x, y, radius2, 0, 2 * pi, false);
+
+    ctx1.closePath();
+    ctx1.fill();
+    ctx1.stroke();
+    ctx1.clip();
+
+
+
+            //закраска кирпичей
+    for (let i = 8; i < 63; i++) { //вертикальная полоса
+        
         ctx1.beginPath();
-        ctx1.strokeStyle = "blue";
-        ctx1.lineWidth = "1";
-        ctx1.moveTo(x, y * 0 + (y - radius));
-        ctx1.lineTo(x, y * 2 - (y - radius));
-
-        ctx1.moveTo(x * 2 - (x - radius), y);
-        ctx1.lineTo(x * 0 + (x - radius), y);
-
-        ctx1.closePath();
-        ctx1.fill();
-        ctx1.stroke();
-
-
-
-        //ОКРУЖНОСТЬ
-
-        ctx1.beginPath();
+        
+        // ctx1.arc(x + radius2 * Math.cos(i * 2 * Math.PI / 20),  y - radius2 * Math.sin(2 * Math.PI / 20 * i), 4, 0, 2 * pi, false);//точки для свеч
         ctx1.lineWidth = 1;
-        ctx1.strokeStyle = "red";
+        ctx1.strokeStyle = "black";
         ctx1.fillStyle = "yellow";
-        ctx1.arc(x, y, radius, 0, 2 * pi, false);
 
+
+
+        ctx1.moveTo(80, i * 10)
+        ctx1.lineTo(620, i * 10)
         ctx1.closePath();
+       
         ctx1.fill();
         ctx1.stroke();
+    }
+    for (let i = 4; i < 32; i++) { //горизонтальн
+
+        ctx1.beginPath();
+
+        ctx1.lineWidth = 1;
+        ctx1.strokeStyle = "black";
+        ctx1.fillStyle = "yellow";
 
 
-        ctx1.save();
-        ctx1.restore();
+        ctx1.moveTo(i * 20, 80)
+        ctx1.lineTo(i * 20, 620)
+        ctx1.closePath();
+
+        ctx1.fill();
+        ctx1.stroke();
+    }
+
+
+    ctx1.beginPath();
+    ctx1.lineWidth = 1;
+    ctx1.strokeStyle = "black";
+    ctx1.fillStyle = "white";
+    ctx1.arc(x, y, radius, 0, 2 * pi, false);
+
+   
+
+    ctx1.closePath();
+    ctx1.fill();
+    ctx1.stroke();
+
+    ctx1.beginPath();
+    ctx1.strokeStyle = "black";
+    ctx1.lineWidth = "1";
+    ctx1.moveTo(x, y * 0 + (y - radius));
+    ctx1.lineTo(x, y * 2 - (y - radius));
+
+    ctx1.moveTo(x * 2 - (x - radius), y);
+    ctx1.lineTo(x * 0 + (x - radius), y);
+    
+    ctx1.closePath();
+    ctx1.fill();
+    ctx1.stroke();
+
+	ctx1.save();
+	ctx1.restore();
+
 
         //СВЕЧА
 
@@ -837,7 +892,7 @@
             ctx1.lineWidth = 1;
             ctx1.strokeStyle = "red";
             ctx1.fillStyle = "yellow";
-            ctx1.arc(x + radius * Math.cos(i * razmerUgla), y - radius * Math.sin(razmerUgla * i), 1, 0, 2 * pi, false);
+           // ctx1.arc(x + radius * Math.cos(i * razmerUgla), y - radius * Math.sin(razmerUgla * i), 1, 0, 2 * pi, false);
 
             ctx1.moveTo(x, y);
             ctx1.fill();
@@ -849,7 +904,7 @@
             var temp_x = x + radius * Math.cos(i * razmerUgla);
             var temp_y = y - radius * Math.sin(razmerUgla * i);
 
-            var vistup = 0;
+            var vistup = 0.05;
 
             temp_x += 0 - vistup * 130 * Math.cos(i * razmerUgla) - 50 * Math.sin(i * razmerUgla);
             temp_y += 0 + vistup * 130 * Math.sin(i * razmerUgla) - 50 * Math.cos(i * razmerUgla);
@@ -858,8 +913,8 @@
 
 
             RGB = (arrTemp[i] - 1800) / 500 * 255;  //ПРОВЕРКА ЕСЛИ НЕ В ДИАПАЗОНЕ!!!!!
-            shirina = (arrShir[i])*50; //заглушка для размеров
-            dlina = (arrDlina[i])*50;//заглушка для размеров
+            shirina = (arrShir[i])*30; //заглушка для размеров
+            dlina = (arrDlina[i])*70;//заглушка для размеров
 
 
 
