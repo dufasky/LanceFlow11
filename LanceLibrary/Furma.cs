@@ -49,6 +49,18 @@ namespace FurmaLibrary
 
         public double TrebRashGaz { set; get; }
 
+
+
+
+
+        public double IzmTeorTGor { set; get; }
+        public double IzmRashPG { set; get; }
+
+
+
+
+
+
         public double SFurmOchag { set; get; }
     }
 }

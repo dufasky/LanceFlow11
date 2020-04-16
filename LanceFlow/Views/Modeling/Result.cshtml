@@ -226,6 +226,26 @@
                                 <td>@Extensions.RoundSmart(Model.Furm[i].TrebRashGaz)</td>
                             }
                         </tr>
+
+
+
+                           <tr>
+                               <th>Измен теорет т-ры грения,  &deg;С </th>
+                            @for (int i = 0; i < 20; i++)
+                            {
+                                <td>@Extensions.RoundSmart(Model.Furm[i].IzmTeorTGor)</td>
+                            }
+                        </tr>
+                           <tr>
+                               <th>Изменение расхода  приодного газа, м3/мин</th>
+                            @for (int i = 0; i < 20; i++)
+                            {
+                                <td>@Extensions.RoundSmart(Model.Furm[i].IzmRashPG)</td>
+                            }
+                        </tr>
+
+
+
                         <tr>
                             <th>Площадь фурм. очага, м2</th>
                             @for (int i = 0; i < 20; i++)
@@ -638,6 +658,18 @@
         });
         </script>
 
+
+
+
+
+
+
+
+
+
+
+
+
         <script>
             var dataKolTepla = @Json.Serialize(Model.Furm.Select(x => x.KolTepla).ToList());
         var NFurm = @Model.Nfurm;
@@ -706,7 +738,16 @@
                 datasets: [densityData]
             }
         });
+            console.log([densityData])
         </script>
+
+
+
+
+
+
+
+
 
         <script>
             var dataVIstDut = @Json.Serialize(Model.Furm.Select(x => x.VIstDut).ToList());
@@ -714,53 +755,60 @@
             var NFurms = [];
 
             for (var i = 1; i <= NFurm; i++) {
-                NFurms.push(i);
+                  NFurms.push(i);
             }
 
-            var marksCanvas = document.getElementById("marksChart1");
 
-            var marksData = {
-                labels: NFurms,
-                datasets: [{
-                    label: "Расход дутья по фурмам м3/мин",
-                    backgroundColor: "transparent",
-                    borderColor: "rgba(200,0,0,0.6)",
-                    fill: false,
-                    radius: 6,
-                    pointRadius: 6,
-                    pointBorderWidth: 3,
-                    pointBackgroundColor: "orange",
-                    pointBorderColor: "rgba(200,0,0,0.6)",
-                    pointHoverRadius: 10,
-                    data: dataVIstDut
-                }
-                //, { //    label: "Student B", //    backgroundColor: "transparent", //    borderColor: "rgba(0,0,200,0.6)", //    fill: false,//    radius: 6,//    pointRadius: 6,//    pointBorderWidth: 3,//    pointBackgroundColor: "cornflowerblue",//    pointBorderColor: "rgba(0,0,200,0.6)",//    pointHoverRadius: 10,//    data: [23, 65, 60, 70, 70, 75]//}
-                    ]
-            };
-
-            var chartOptions = {
-                scale: {
-                    ticks: {
-                        beginAtZero: true,
-                        min: 0,
-                        max: 900,
-                        stepSize: 100
-                    },
-                    pointLabels: {
-                        fontSize: 18
-                    }
-                },
-                legend: {
-                    position: 'left'
-                }
-            };
-
+            
+            var marksCanvas = document.getElementById('marksChart1').getContext('2d');
             var radarChart = new Chart(marksCanvas, {
-                type: 'radar',
-                data: marksData,
-                options: chartOptions
+                type: 'polarArea',
+                data: {
+                    labels: NFurms,
+                    datasets: [{
+                        label: "Расход дутья по фурмам",
+                        backgroundColor: "transparent",
+                        borderColor: "rgba(200,0,0,0.6)",
+                        fill: false,
+                        radius: 6,
+                        pointRadius: 6,
+                        pointBorderWidth: 3,
+                        pointBackgroundColor: "orange",
+                        pointBorderColor: "rgba(200,0,0,0.6)",
+                        pointHoverRadius: 10,
+                        data: dataVIstDut
+                    }]
+                },
+                //созвонимся 
+
+                options: {
+                    tooltips: {
+                        enabled: true,
+                        mode: 'point',
+                    },
+                   scale: {
+                      ticks: {
+                         beginAtZero: true,
+                         min: 0,
+                         max: dataVIstDut[i],
+                         stepSize: 100
+                     },
+                       pointLabels: {
+                         fontSize: 18
+                       }
+                   },
+                   legend: {
+                        position: 'left'
+                   }
+                }
             });
         </script>
+
+
+
+
+
+
 
 
 

@@ -280,6 +280,10 @@ namespace FurmaLibrary
                 Furm[i].TeplosodPriZadZn1 = (Furm[i].TrebZnTeor - 165) / 0.6113;
                 Furm[i].RashPodderz = (9800 + RashUgl * TeplosodDut + TeplosodKoks - Furm[i].TeplosodPriZadZn1 * RashGorn) / (Furm[i].TeplosodPriZadZn1 * VihGorn - (1590 + RashGaz * TeplosodDut));
                 Furm[i].TrebRashGaz = Furm[i].RashPodderz * Furm[i].KolUgler * 60;
+
+                Furm[i].IzmTeorTGor = Furm[i].TrebZnTeor - Furm[i].TeorTGor;
+                Furm[i].IzmRashPG = Furm[i].TrebRashGaz - Furm[i].RashGazNaF;
+
                 Furm[i].SFurmOchag = 3.14 * Furm[i].ProtZoniCirk * Furm[i].ProtZoniCirk / 4;
 
             }
