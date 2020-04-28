@@ -1,4 +1,7 @@
 ﻿@model LanceFlow.Models.ModelingViewModels.IndexViewModel
+@{
+    ViewData["Title"] = "Ввод исходных данных";
+}
 
 <h1 align="center" class="ish">Исходные данные для печи</h1>
 
@@ -12,7 +15,7 @@
         </thead>
         <tbody>
             <tr>
-                <td>Полезный объем печи, м3</td>
+                <td>Полезный объем печи, м<sup>3</sup></td>
                 <td><input type="text" name="input.Vpolez" value="@Model.Data.Vpolez" class="form-control input-100" /></td>
             </tr>
             <tr>
@@ -24,11 +27,11 @@
                 <td><input type="text" name="input.Proizv" value="@Model.Data.Proizv" class="form-control input-100" /></td>
             </tr>
             <tr>
-                <td>Число воздушных фурм, шт</td>
+                <td>Число воздушных фурм, шт.</td>
                 <td><input type="text" name="input.Nfurm" value="@Model.Data.Nfurm" class="form-control input-100" /></td>
             </tr>
             <!-- <tr>
-                <td>Число работающих воздушных фурм, шт</td>
+                <td>Число работающих воздушных фурм, шт.</td>
                 <td><input type="text" name="input.NrabFurm" value="@Model.Data.NrabFurm" class="form-control input-100" /></td>
             </tr> -->
             <tr>
@@ -78,10 +81,10 @@
                 <td><input type="text" name="input.SodKislorod" value="@Model.Data.SodKislorod" class="form-control input-100" /></td>
             </tr>
             <tr>
-            <!-- <tr>
-                <td>Расход природного газа, м3/т чуг</td>
-                <td><input type="text" name="input.RashPrirGaz" value="@Model.Data.RashPrirGaz" class="form-control input-100" /></td>
-            </tr> -->
+                <!-- <tr>
+                    <td>Расход природного газа, м3/т чуг</td>
+                    <td><input type="text" name="input.RashPrirGaz" value="@Model.Data.RashPrirGaz" class="form-control input-100" /></td>
+                </tr> -->
             <tr>
                 <td>Коэффициент сжатия фурменного очага (в плане)</td>
                 <td><input type="text" name="input.Kszh" value="@Model.Data.Kszh" class="form-control input-100" /></td>
@@ -123,8 +126,6 @@
         });
     </script>
 
-
-
     <h1 align="center" class="ish">Исходные данные фурм</h1>
     <div class="Dvig">
         <table class="table s_inputdata" align="center">
@@ -144,46 +145,74 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Расход газа на фурму, м3/ч</td>
+                    <td>Расход газа на фурму, м<sup>3</sup>/ч</td>
                     @for (int i = 0; i < 20; i++)
                     {
                         <td>
-                            <input type="text" name="input.Furm[@i].RashGazNaF" value="@Model.Data.Furm[i].RashGazNaF" class="form-control" style="width: 70px;" />
+                            <input type="text" name="input.Furm[@i].RashGazNaF" value="@Model.Data.Furm[i].RashGazNaF" class="form-control input_xs" />
                         </td>
                     }
                 </tr>
                 <tr>
-                    <td>Расход воды на фурму, м3/ч</td>
+                    <td>Расход воды на фурму, м<sup>3</sup>/ч</td>
                     @for (int i = 0; i < 20; i++)
                     {
                         <td>
-                            <input type="text" name="input.Furm[@i].RashVodiNaF" value="@Model.Data.Furm[i].RashVodiNaF" class="form-control" style="width: 70px;" />
+                            <input type="text" name="input.Furm[@i].RashVodiNaF" value="@Model.Data.Furm[i].RashVodiNaF" class="form-control input_xs" />
                         </td>
                     }
                 </tr>
                 <tr>
-                    <td>Тем-рный перепад воды на фурме, оС</td>
+                    <td>Температурный перепад воды на фурме, &deg;С</td>
                     @for (int i = 0; i < 20; i++)
                     {
                         <td>
-                            <input type="text" name="input.Furm[@i].Tperepad" value="@Model.Data.Furm[i].Tperepad" class="form-control" style="width: 70px;" />
+                            <input type="text" name="input.Furm[@i].Tperepad" value="@Model.Data.Furm[i].Tperepad" class="form-control input_xs" />
                         </td>
                     }
                 </tr>
                 <tr>
-                    <td>требуемого значения теоретич. тем-ры горения, &deg;С</td>
+                    <td>Требуемое значение Тгор, &deg;С</td>
                     @for (int i = 0; i < 20; i++)
                     {
                         <td>
-                            <input type="text" name="input.Furm[@i].TrebZnTeor" value="@Model.Data.Furm[i].TrebZnTeor" class="form-control" style="width: 70px;" />
+                            <input type="text" name="input.Furm[@i].TrebZnTeor" value="@Model.Data.Furm[i].TrebZnTeor" class="form-control input_xs" />
                         </td>
                     }
                 </tr>
             </tbody>
         </table>
     </div>
-
+    <br />
+    <div class="col-3 mb-3 block_save_as hide">
+        <div class="row">
+            <input type="text" name="VariantName" value="" class="form-control" />
+        </div>
+    </div>
     <button type="submit" class="btn btn-primary">Рассчитать</button>
+    <span class="btn-link link_save_as">Сохранить вариант как</span>
+
+    <style>
+        .link_save_as {
+            display: inline-block;
+            color: blue;
+        }
+
+            .link_save_as:hover {
+                border-bottom: 1px dashed blue;
+                cursor: pointer;
+                text-decoration: none;
+            }
+    </style>
+    <script>
+        $(function () {
+            $('.link_save_as').on('click', function () {
+                $('.block_save_as').toggleClass('hide');
+            });
+
+        })
+    </script>
+
 </form>
 
 

@@ -1,34 +1,28 @@
 ﻿@model FurmaGeneral
-
-
-
-
-
+@{ 
+    ViewData["Title"] = "Результаты расчета";
+}
 
 <!--Страница результатов расчетов -->
-
-
-
-
 
 <div class="row" style="margin-top: 10px;">
     <ul class="nav nav-pills" role="tablist">
         <li class="nav-item">
-            <a href="#tab_results" data-toggle="tab" class="nav-link active">Результаты</a>
+            <a href="#tab_results" data-toggle="pill" class="nav-link active">Результаты</a>
         </li>
-        <li role="presentation">
-            <a href="#tab_input" data-toggle="tab" class="nav-link">Исходные данные</a>
+        <li class="nav-item">
+            <a href="#tab_input" data-toggle="pill" class="nav-link">Исходные данные</a>
         </li>
-        <li role="presentation">
-            <a href="#tab_prepare" data-toggle="tab" class="nav-link">Предварительные расчеты</a>
+        <li class="nav-item">
+            <a href="#tab_prepare" data-toggle="pill" class="nav-link">Предварительные расчеты</a>
         </li>
-        <li role="presentation">
+        <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">Графики</a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" data-toggle="tab" href="#tab_graph_1">Расход дутья по прибору и фактический</a>
-                <a class="dropdown-item" data-toggle="tab" href="#tab_graph_2">Расход ПГ фактический и требуемый</a>
-                <a class="dropdown-item" data-toggle="tab" href="#tab_graph_3">Количество тепла на нагрев воды</a>
-                <a class="dropdown-item" data-toggle="tab" href="#tab_graph_4">Расход дутья фактический (круг)</a>
+                <a class="dropdown-item" data-toggle="pill" href="#tab_graph_1">Расход дутья по прибору и фактический</a>
+                <a class="dropdown-item" data-toggle="pill" href="#tab_graph_2">Расход ПГ фактический и требуемый</a>
+                <a class="dropdown-item" data-toggle="pill" href="#tab_graph_3">Количество тепла на нагрев воды</a>
+                <a class="dropdown-item" data-toggle="pill" href="#tab_graph_4">Расход дутья фактический (круг)</a>
             </div>
 
         </li>
@@ -56,7 +50,7 @@
                     <td>@Extensions.RoundSmart(Model.KinetW)</td>
                 </tr>
                 <tr>
-                    <td>Протяженность зоны циркуляции (кислородная часть зоны горения),м</td>
+                    <td>Протяженность зоны циркуляции (кислородная часть зоны горения), м</td>
                     <td>@Extensions.RoundSmart(Model.ProtZoniCirk)</td>
                 </tr>
                 <tr>
@@ -102,19 +96,18 @@
                             <td>@Extensions.RoundSmart(Model.Furm[i].KolTepla)</td>
 
                         }
-                        @*<td>
-                            <td>@Model.Furm.Average(x => x.KolTepla)</td>*@
+                        @*<td><td>@Model.Furm.Average(x => x.KolTepla)</td>*@
                     </tr>
 
                     <tr>
-                        <th>Расход дутья через фурму по прибору, м3/мин</th>
+                        <th>Расход дутья через фурму по прибору, м<sup>3</sup>/мин</th>
                         @for (int i = 0; i < 20; i++)
                         {
                             <td>@Extensions.RoundSmart(Model.Furm[i].RashDutPribor)</td>
                         }
                     </tr>
                     <tr>
-                        <th>Факт. расход дутья через фурму, м3/мин</th>
+                        <th>Факт. расход дутья через фурму, м<sup>3</sup>/мин</th>
                         @for (int i = 0; i < 20; i++)
                         {
                             <td>@Extensions.RoundSmart(Model.Furm[i].FactRashDut)</td>
@@ -122,17 +115,15 @@
                         @*<td><input type="text" name="input.SrFactRashDut" /></td>*@
                     </tr>
                     <tr>
-                        <th>Расчетный относительный расход дутья через фурму</th>
+                        <th>Расчетный относительный расход дутья через фурму, ед.</th>
                         @for (int i = 0; i < 20; i++)
                         {
                             <td>@Extensions.RoundSmart(Model.Furm[i].RasOtnos)</td>
 
                         }
                     </tr>
-
-
                     <tr>
-                        <th>Кол-во сожжен.углерода , кг/мин</th>
+                        <th>Кол-во сожжен. углерода, кг/мин</th>
                         @for (int i = 0; i < 20; i++)
                         {
                             <td>@Extensions.RoundSmart(Model.Furm[i].KolUgler)</td>
@@ -149,7 +140,7 @@
                         }
                     </tr> -->
                     <tr>
-                        <th>Теплосодерж. горновых газов, кДж/м3</th>
+                        <th>Теплосодерж. горновых газов, кДж/м<sup>3</sup></th>
                         @for (int i = 0; i < 20; i++)
                         {
                             <td>@Extensions.RoundSmart(Model.Furm[i].TeplosodGorn)</td>
@@ -205,22 +196,22 @@
                         }
                     </tr>
                     <tr>
-                        <th>Теплосодержание горновых газов при заданном значении Тт, кДж/м3</th>
+                        <th>Теплосодержание горновых газов при заданном значении Тт, кДж/м<sup>3</sup></th>
                         @for (int i = 0; i < 20; i++)
                         {
                             <td>@Extensions.RoundSmart(Model.Furm[i].TeplosodPriZadZn1)</td>
                         }
                     </tr>
                     <!-- Не выводить (sportsoft от 09.12)
-                        <tr>
-                        <th>Расход газа для поддержания теорет. тем-ры горения, м3/кг С</th>
-                        @for (int i = 0; i < 20; i++)
-                        {
-                            <td>@Extensions.RoundSmart(Model.Furm[i].RashPodderz)</td>
-                        }
+                    <tr>
+                    <th>Расход газа для поддержания теорет. тем-ры горения, м3/кг С</th>
+                    @for (int i = 0; i < 20; i++)
+                    {
+                        <td>@Extensions.RoundSmart(Model.Furm[i].RashPodderz)</td>
+                    }
                     </tr> -->
                     <tr>
-                        <th>Требуемый расход газа для поддержания теоретической температуры горения, м3/ч</th>
+                        <th>Требуемый расход газа для поддержания теоретической температуры горения, м<sup>3</sup>/ч</th>
                         @for (int i = 0; i < 20; i++)
                         {
                             <td>@Extensions.RoundSmart(Model.Furm[i].TrebRashGaz)</td>
@@ -230,14 +221,14 @@
 
 
                     <tr>
-                        <th>Измен теорет т-ры грения,  &deg;С </th>
+                        <th>Изменение теоретической температуры горения,  &deg;С </th>
                         @for (int i = 0; i < 20; i++)
                         {
                             <td>@Extensions.RoundSmart(Model.Furm[i].IzmTeorTGor)</td>
                         }
                     </tr>
                     <tr>
-                        <th>Изменение расхода  приодного газа, м3/мин</th>
+                        <th>Изменение расхода приодного газа, м<sup>3</sup>/мин</th>
                         @for (int i = 0; i < 20; i++)
                         {
                             <td>@Extensions.RoundSmart(Model.Furm[i].IzmRashPG)</td>
@@ -273,7 +264,7 @@
                     <td>@Model.DiGorn</td>
                 </tr>
                 <tr>
-                    <td>Полезный объем печи, м3</td>
+                    <td>Полезный объем печи, м<sup>3</sup></td>
                     <td>@Model.Vpolez</td>
                 </tr>
                 <tr>
@@ -333,7 +324,7 @@
                 <tr>
                 <tr>
                     <td>Расход природного газа, м<sup>3</sup>/т чуг</td>
-                    <td>@Model.RashPrirGaz</td>
+                    <td>@Extensions.RoundSmart(Model.RashPrirGaz)</td>
                 </tr>
                 <tr>
                     <td>Коэффициент сжатия фурменного очага (в плане)</td>
@@ -416,19 +407,19 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Теплоемкость кислорода при тем-ре дутья, кДж/(м3*к)</td>
+                    <td>Теплоемкость кислорода при тем-ре дутья, кДж/(м<sup>3</sup>·К)</td>
                     <td>@Extensions.RoundSmart(Model.TepKi)</td>
                 </tr>
                 <tr>
-                    <td>Теплоемкость азота при тем-ре дутья, кДж/(м3*К)</td>
+                    <td>Теплоемкость азота при тем-ре дутья, кДж/(м<sup>3</sup>·К)</td>
                     <td>@Extensions.RoundSmart(Model.TepAz)</td>
                 </tr>
                 <tr>
-                    <td>Теплоемкость двухатомных газов при Tд, кдж/(м3*К)</td>
+                    <td>Теплоемкость двухатомных газов при Tд, кдж/(м<sup>3</sup>·К)</td>
                     <td>@Extensions.RoundSmart(Model.TepDvuh)</td>
                 </tr>
                 <tr>
-                    <td>Теплоемкость паров воды при Tд, кДж/(м3*к) </td>
+                    <td>Теплоемкость паров воды при Tд, кДж/(м<sup>3</sup>·К) </td>
                     <td>@Extensions.RoundSmart(Model.TepPar)</td>
                 </tr>
                 @*<tr>
@@ -436,19 +427,19 @@
                         <td><input type="text" name="input.RashUgl" /></td>
                     </tr>*@
                 <tr>
-                    <td>Расход дутья на 1 кг углерода, м3/кг С</td>
+                    <td>Расход дутья на 1 кг углерода, м<sup>3</sup>/кг С</td>
                     <td>@Extensions.RoundSmart(Model.RashUgl)</td>
                 </tr>
                 <tr>
-                    <td>Расход дутья для сжигания 1 м3 газа, м3/м3 </td>
+                    <td>Расход дутья для сжигания 1 м3 газа, м<sup>3</sup>/м<sup>3</sup> </td>
                     <td>@Extensions.RoundSmart(Model.RashGaz)</td>
                 </tr>
                 <tr>
-                    <td>Выход горнового газа при сжигании 1 кг углерода, м3/кгС</td>
+                    <td>Выход горнового газа при сжигании 1 кг углерода, м<sup>3</sup>/кгС</td>
                     <td>@Extensions.RoundSmart(Model.RashGorn)</td>
                 </tr>
                 <tr>
-                    <td>Выход горнового газа при сжигании 1 м3 газа, м3/м3</td>
+                    <td>Выход горнового газа при сжигании 1 м<sup>3</sup> газа, м<sup>3</sup>/м<sup>3</sup></td>
                     <td>@Extensions.RoundSmart(Model.VihGorn)</td>
                 </tr>
                 @*<tr>
@@ -456,7 +447,7 @@
                         <td>@Model.Perecr</td>
                     </tr>*@
                 <tr>
-                    <td>Теплосодержание дутья, кДж/м3</td>
+                    <td>Теплосодержание дутья, кДж/м<sup>3</sup></td>
                     <td>@Extensions.RoundSmart(Model.TeplosodDut)</td>
                 </tr>
                 <tr>
@@ -464,7 +455,7 @@
                     <td>@Extensions.RoundSmart(Model.TeplosodKoks)</td>
                 </tr>
                 <tr>
-                    <td>Теплоемкость дутья, кДж/(м3*К)</td>
+                    <td>Теплоемкость дутья, кДж/(м<sup>3</sup>*К)</td>
                     <td>@Extensions.RoundSmart(Model.TeploemkDut)</td>
                 </tr>
                 <tr>
@@ -524,12 +515,6 @@
                  innerHtml += '<div class="element">Element</div>';
             }*@
     </script>
-
-
-
-
-
-
 
 
     @*ГРАФИК Фактический расход дутья*@

@@ -13,14 +13,16 @@ namespace LanceFlow.Models
 
             if (Double.TryParse(input?.ToString(), out double value))
             {
-                if (value <= 0.000001) value = Math.Round(value, 8);
-                else if (value <= 0.00001) value = Math.Round(value, 7);
-                else if (value <= 0.0001) value = Math.Round(value, 6);
-                else if (value <= 0.001) value = Math.Round(value, 5);
-                else if (value <= 0.01) value = Math.Round(value, 4);
-                else if (value <= 0.1) value = Math.Round(value, 3);
-                else if (value <= 100) value = Math.Round(value, 2);
-                else if (value <= 500) value = Math.Round(value, 1);
+                double absValue = Math.Abs(value);
+
+                if (absValue <= 0.000001) value = Math.Round(value, 8);
+                else if (absValue <= 0.00001) value = Math.Round(value, 7);
+                else if (absValue <= 0.0001) value = Math.Round(value, 6);
+                else if (absValue <= 0.001) value = Math.Round(value, 5);
+                else if (absValue <= 0.01) value = Math.Round(value, 4);
+                else if (absValue <= 0.1) value = Math.Round(value, 3);
+                else if (absValue <= 100) value = Math.Round(value, 2);
+                else if (absValue <= 500) value = Math.Round(value, 1);
                 else value = Math.Round(value);
 
                 return value;

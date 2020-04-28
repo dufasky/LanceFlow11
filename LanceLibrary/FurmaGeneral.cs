@@ -58,7 +58,7 @@ namespace FurmaLibrary
 
         //дальше общие расчеты (не по каждой фурме)
 
-        [Display(Name = "Расход природного газа, м3/т чуг")]
+        [Display(Name = "Расход природного газа, м<sup>3</sup>/т чуг")]
         public double RashPrirGaz
         {
             get

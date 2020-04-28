@@ -72,6 +72,14 @@ body {
 
 /* -------------------------------------------------------------------------------- */
 
+.hide { display: none; }
+
+.input_xs {
+    padding-left: 6px;
+    padding-right: 6px;
+    width: 70px !important;
+}
+
 .input-100 {
     width: 100px !important;
 }

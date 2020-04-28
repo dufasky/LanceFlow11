@@ -1,6 +1,6 @@
 ﻿@model List<Variants>
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Распределение горячего дутья и природного газа по фурмам доменной печи";
 }
 
 <div>
@@ -19,7 +19,10 @@
         {
             <tr>
                 <td>@variant.Name</td>
-                <td><a href="/Modeling/Vvod?VariantId=@variant.VariantId">Открыть</a></td>
+                 <td>
+                    <a href="/Modeling/Vvod?VariantId=@variant.VariantId">Открыть</a> /
+                    <a href="/Modeling/Index?RemoveVariantId=@variant.VariantId">Удалить</a>
+                </td>
             </tr>
         }
     </tbody>

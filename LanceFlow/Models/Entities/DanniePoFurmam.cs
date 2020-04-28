@@ -16,5 +16,6 @@ namespace LanceFlow.Models.Entities
         public double RashVodiNaF { get; set; }
         public double Tperepad { get; set; }
 
+        public double TrebZnTeor { get; set; }
     }
 }
