@@ -14,6 +14,8 @@ namespace LanceFlow.Controllers
     {
         private DcContext _context;
 
+        public int PechId { get; private set; }
+
         public ModelingController(DcContext context)
         {
             _context = context;
@@ -50,17 +52,28 @@ namespace LanceFlow.Controllers
 
             return View(model);
         }
+        
+        public IActionResult History()
+        {
+            List<ProcessOfTechnologyDate> model = _context.ProcessOfTechnologyDate.ToList();
+
+            return View(model);
+        }
 
         [HttpPost]
         public IActionResult Result(FurmaGeneral input, string VariantName)
         {
-            if(VariantName != null && VariantName != String.Empty)
+            if (VariantName != null && VariantName != String.Empty)
             {
-                Variants variant = new Variants { Name = VariantName };
+                Variants variant = new Variants 
+                { 
+                    Name = VariantName
+                };
                 _context.Variants.Add(variant);
                 _context.SaveChanges();
 
                 Pechi searchPech = _context.Pechi.FirstOrDefault(x => x.NFurm == input.Nfurm && x.DiamFurm == input.DiamFurm && x.VisFurm == input.VisFurm && x.Vpolez == input.Vpolez);
+
                 int PechId = 0;
                 
                 if(searchPech == null)
@@ -127,24 +140,77 @@ namespace LanceFlow.Controllers
             return View(input);
         }
 
-        public IActionResult Vvod(int VariantId = 1)
+        public IActionResult Vvod(int VariantId, DateTime DateId)
         {
+            if (VariantId > 0)
+            {
+                IndexViewModel model = new IndexViewModel();
+
+                model.CurrentVariantId = VariantId;
+                model.Variants = _context.Variants.ToList();
+                model.Data.SetDefaultData();
+
+                // 
+                List<DanniePoFurmam> data = _context.DanniePoFurmam.Where(x => x.VariantId == VariantId).ToList();
+
+                ProcessOfTechnology processData = _context.ProcessOfTechnology.FirstOrDefault(x => x.VariantId == VariantId);
+
+                if (processData != null)
+                {
+                    Pechi pech = _context.Pechi.FirstOrDefault(x => x.Id == processData.PechId);
+
+                    if (pech != null)
+                    {
+                        model.Data.Nfurm = pech.NFurm;
+                        model.Data.DiamFurm = pech.DiamFurm;
+                        model.Data.VisFurm = pech.VisFurm;
+                        model.Data.Vpolez = pech.Vpolez;
+                    }
+
+                    model.Data.Proizv = processData.Proizv;
+                    model.Data.RashDut = processData.RashDut;
+                    model.Data.SodKislorod = processData.SodKislorod;
+                    model.Data.UdRashKoks = processData.UdRashKoks;
+                    model.Data.TDut = processData.TDut;
+                    model.Data.DavlDut = processData.DavlDut;
+                    model.Data.VlazDut = processData.VlazDut;
+                }
+
+                model.Data.Furm.Clear();
+
+                foreach (DanniePoFurmam _dan in data)
+                {
+                    model.Data.Furm.Add(new Furma
+                    {
+                        isActual = _dan.isActual,
+                        RashGazNaF = _dan.RashGazNaF,
+                        RashVodiNaF = _dan.RashVodiNaF,
+                        Tperepad = _dan.Tperepad,
+                        TrebZnTeor = _dan.TrebZnTeor
+                    });
+                }
+                return View(model);
+            }
+            else
+            {
+
+                DateTime test = DateTimeFormatter.DateFormatter(DateId);
             IndexViewModel model = new IndexViewModel();
 
-            model.CurrentVariantId = VariantId;
-            model.Variants = _context.Variants.ToList();
+            model.CurrentDateId = DateId;
+            model.ProcessOfTechnologyDates = _context.ProcessOfTechnologyDate.ToList();
             model.Data.SetDefaultData();
 
             // 
-            List<DanniePoFurmam> data = _context.DanniePoFurmam.Where(x => x.VariantId == VariantId).ToList();
+            List<DanniePoFurmamDate> data = _context.DanniePoFurmamDate.Where(x => x.DateId == DateTimeFormatter.DateFormatter(DateId)).ToList();
 
-            ProcessOfTechnology processData = _context.ProcessOfTechnology.FirstOrDefault(x => x.VariantId == VariantId);
+            ProcessOfTechnologyDate processData = _context.ProcessOfTechnologyDate.FirstOrDefault(x => x.DateId == DateTimeFormatter.DateFormatter(DateId));
 
-            if(processData != null)
+            if (processData != null)
             {
                 Pechi pech = _context.Pechi.FirstOrDefault(x => x.Id == processData.PechId);
 
-                if(pech != null)
+                if (pech != null)
                 {
                     model.Data.Nfurm = pech.NFurm;
                     model.Data.DiamFurm = pech.DiamFurm;
@@ -163,7 +229,7 @@ namespace LanceFlow.Controllers
 
             model.Data.Furm.Clear();
 
-            foreach (DanniePoFurmam _dan in data)
+            foreach (DanniePoFurmamDate _dan in data)
             {
                 model.Data.Furm.Add(new Furma
                 {
@@ -174,11 +240,9 @@ namespace LanceFlow.Controllers
                     TrebZnTeor = _dan.TrebZnTeor
                 });
             }
-
-
-            // model.Furm;
-
             return View(model);
+        }
+            // model.Furm;
         }
     }
 }

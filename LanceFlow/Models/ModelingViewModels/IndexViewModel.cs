@@ -15,6 +15,10 @@ namespace LanceFlow.Models.ModelingViewModels
 
         public int CurrentVariantId;
 
+        public List<ProcessOfTechnologyDate> ProcessOfTechnologyDates;
+
+        public DateTime CurrentDateId;
+
         public IndexViewModel()
         {
             Data = new FurmaGeneral();

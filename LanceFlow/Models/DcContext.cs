@@ -17,16 +17,23 @@ namespace LanceFlow.Models
         public DbSet<Variants> Variants { get; set; }
 
         public DbSet<DanniePoFurmam> DanniePoFurmam { get; set; }
+        public DbSet<ProcessOfTechnologyDate> ProcessOfTechnologyDate { get; set; }
+
+
+        public DbSet<DanniePoFurmamDate> DanniePoFurmamDate { get; set; }
 
         public DcContext(DbContextOptions<DcContext> options) : base(options)
         {
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<ProcessOfTechnology>().HasKey(u => new { u.PechId, u.VariantId});//составной ключ для таблицы ProcessOfTechnology
             builder.Entity<DanniePoFurmam>().HasKey(u => new { u.VariantId, u.NFurm });//составной ключ для таблицы DanniePoFurmam
+
+            builder.Entity<ProcessOfTechnologyDate>().HasKey(u => new { u.PechId, u.DateId });//составной ключ для таблицы ProcessOfTechnologyDate
+            builder.Entity<DanniePoFurmamDate>().HasKey(u => new { u.DateId, u.NFurm, u.PechId });//составной ключ для таблицы DanniePoFurmamDate
 
             base.OnModelCreating(builder);
         }

@@ -28,6 +28,13 @@ namespace LanceFlow.Controllers
 
             return View(model);
         }
+
+        public IActionResult History()
+        {
+            List<ProcessOfTechnologyDate> model = _context.ProcessOfTechnologyDate.ToList();
+
+            return View(model);
+        }
         public IActionResult Privacy()
         {
 
