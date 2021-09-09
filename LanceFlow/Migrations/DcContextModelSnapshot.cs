@@ -187,6 +187,72 @@ namespace LanceFlow.Migrations
 
                     b.ToTable("Variants");
                 });
+
+            modelBuilder.Entity("LanceFlow.Models.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "admin"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "user"
+                        });
+                });
+
+            modelBuilder.Entity("LanceFlow.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("RoleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Email = "dufaz@yandex.ru",
+                            Password = "QwE12345",
+                            RoleId = 1
+                        });
+                });
+
+            modelBuilder.Entity("LanceFlow.Models.User", b =>
+                {
+                    b.HasOne("LanceFlow.Models.Role", "Role")
+                        .WithMany("Users")
+                        .HasForeignKey("RoleId");
+                });
 #pragma warning restore 612, 618
         }
     }

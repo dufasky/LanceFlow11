@@ -22,9 +22,13 @@ namespace LanceFlow.Models
 
         public DbSet<DanniePoFurmamDate> DanniePoFurmamDate { get; set; }
 
+        public DbSet<User> Users { get; set; }
+        public DbSet<Role> Roles { get; set; }
+
         public DcContext(DbContextOptions<DcContext> options) : base(options)
         {
             //Database.EnsureCreated();
+            //Database.Migrate();
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -34,6 +38,20 @@ namespace LanceFlow.Models
 
             builder.Entity<ProcessOfTechnologyDate>().HasKey(u => new { u.PechId, u.DateId });//составной ключ для таблицы ProcessOfTechnologyDate
             builder.Entity<DanniePoFurmamDate>().HasKey(u => new { u.DateId, u.NFurm, u.PechId });//составной ключ для таблицы DanniePoFurmamDate
+
+            string adminRoleName = "admin";
+            string userRoleName = "user";
+
+            string adminEmail = "dufaz@yandex.ru";
+            string adminPassword = "QwE12345";
+
+            // добавляем роли   
+            Role adminRole = new Role { Id = 1, Name = adminRoleName };
+            Role userRole = new Role { Id = 2, Name = userRoleName };
+            User adminUser = new User { Id = 1, Email = adminEmail, Password = adminPassword, RoleId = adminRole.Id };
+
+            builder.Entity<Role>().HasData(new Role[] { adminRole, userRole });
+            builder.Entity<User>().HasData(new User[] { adminUser });
 
             base.OnModelCreating(builder);
         }
