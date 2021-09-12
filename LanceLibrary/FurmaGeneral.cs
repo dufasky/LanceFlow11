@@ -318,7 +318,8 @@ namespace FurmaLibrary
                     RashGazNaF = 908.522,//начальные значения
                     RashVodiNaF = 11.412,
                     Tperepad = 11.25,
-                    TrebZnTeor = 2150
+                    TrebZnTeor = 2150,
+                    isActual = true
                 };
 
                 this.Furm.Add(cls);
@@ -327,4 +328,3 @@ namespace FurmaLibrary
     }
 
 }
-        

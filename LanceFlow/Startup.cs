@@ -25,20 +25,21 @@ namespace LanceFlow
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             string connection = Configuration.GetConnectionString("DefaultConnection");
            
             services.AddDbContext<DcContext>(options =>
                 options.UseSqlServer(connection));
+
             services.AddHttpContextAccessor();
             services.AddScoped<AuthenticateService>();
+
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
                 {
-                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
-                    options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+                    options.LoginPath = new PathString("/Account/Login");
+                    options.AccessDeniedPath = new PathString("/Account/Login");
                 });
 
             services.AddRazorPages()
@@ -62,10 +63,10 @@ namespace LanceFlow
 
             app.UseRouting();
             app.UseHttpsRedirection();
+
             app.UseAuthentication();
             app.UseAuthorization();
             
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

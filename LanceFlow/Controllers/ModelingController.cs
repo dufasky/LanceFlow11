@@ -39,7 +39,7 @@ namespace LanceFlow.Controllers
                     _context.DanniePoFurmam.RemoveRange(furmData);
                 }
 
-                Variants variant = _context.Variants.FirstOrDefault(x => x.VariantId == RemoveVariantId);
+                Variant variant = _context.Variants.FirstOrDefault(x => x.VariantId == RemoveVariantId);
 
                 if(variant != null)
                 {
@@ -48,7 +48,7 @@ namespace LanceFlow.Controllers
                 _context.SaveChanges();
             }
 
-            List<Variants> model = _context.Variants.ToList();
+            List<Variant> model = _context.Variants.ToList();
 
             return View(model);
         }
@@ -65,7 +65,7 @@ namespace LanceFlow.Controllers
         {
             if (VariantName != null && VariantName != String.Empty)
             {
-                Variants variant = new Variants 
+                Variant variant = new Variant 
                 { 
                     Name = VariantName
                 };
@@ -140,6 +140,14 @@ namespace LanceFlow.Controllers
             return View(input);
         }
 
+        public IActionResult Create()
+        {
+            IndexViewModel model = new IndexViewModel();
+            model.Data.SetDefaultData();
+
+            return View("Vvod", model);
+        }
+
         public IActionResult Vvod(int VariantId, DateTime DateId)
         {
             if (VariantId > 0)
@@ -195,53 +203,53 @@ namespace LanceFlow.Controllers
             {
 
                 DateTime test = DateTimeFormatter.DateFormatter(DateId);
-            IndexViewModel model = new IndexViewModel();
+                IndexViewModel model = new IndexViewModel();
 
-            model.CurrentDateId = DateId;
-            model.ProcessOfTechnologyDates = _context.ProcessOfTechnologyDate.ToList();
-            model.Data.SetDefaultData();
+                model.CurrentDateId = DateId;
+                model.ProcessOfTechnologyDates = _context.ProcessOfTechnologyDate.ToList();
+                model.Data.SetDefaultData();
 
-            // 
-            List<DanniePoFurmamDate> data = _context.DanniePoFurmamDate.Where(x => x.DateId == DateTimeFormatter.DateFormatter(DateId)).ToList();
+                // 
+                List<DanniePoFurmamDate> data = _context.DanniePoFurmamDate.Where(x => x.DateId == DateTimeFormatter.DateFormatter(DateId)).ToList();
 
-            ProcessOfTechnologyDate processData = _context.ProcessOfTechnologyDate.FirstOrDefault(x => x.DateId == DateTimeFormatter.DateFormatter(DateId));
+                ProcessOfTechnologyDate processData = _context.ProcessOfTechnologyDate.FirstOrDefault(x => x.DateId == DateTimeFormatter.DateFormatter(DateId));
 
-            if (processData != null)
-            {
-                Pechi pech = _context.Pechi.FirstOrDefault(x => x.Id == processData.PechId);
-
-                if (pech != null)
+                if (processData != null)
                 {
-                    model.Data.Nfurm = pech.NFurm;
-                    model.Data.DiamFurm = pech.DiamFurm;
-                    model.Data.VisFurm = pech.VisFurm;
-                    model.Data.Vpolez = pech.Vpolez;
+                    Pechi pech = _context.Pechi.FirstOrDefault(x => x.Id == processData.PechId);
+
+                    if (pech != null)
+                    {
+                        model.Data.Nfurm = pech.NFurm;
+                        model.Data.DiamFurm = pech.DiamFurm;
+                        model.Data.VisFurm = pech.VisFurm;
+                        model.Data.Vpolez = pech.Vpolez;
+                    }
+
+                    model.Data.Proizv = processData.Proizv;
+                    model.Data.RashDut = processData.RashDut;
+                    model.Data.SodKislorod = processData.SodKislorod;
+                    model.Data.UdRashKoks = processData.UdRashKoks;
+                    model.Data.TDut = processData.TDut;
+                    model.Data.DavlDut = processData.DavlDut;
+                    model.Data.VlazDut = processData.VlazDut;
                 }
 
-                model.Data.Proizv = processData.Proizv;
-                model.Data.RashDut = processData.RashDut;
-                model.Data.SodKislorod = processData.SodKislorod;
-                model.Data.UdRashKoks = processData.UdRashKoks;
-                model.Data.TDut = processData.TDut;
-                model.Data.DavlDut = processData.DavlDut;
-                model.Data.VlazDut = processData.VlazDut;
-            }
+                model.Data.Furm.Clear();
 
-            model.Data.Furm.Clear();
-
-            foreach (DanniePoFurmamDate _dan in data)
-            {
-                model.Data.Furm.Add(new Furma
+                foreach (DanniePoFurmamDate _dan in data)
                 {
-                    isActual = _dan.isActual,
-                    RashGazNaF = _dan.RashGazNaF,
-                    RashVodiNaF = _dan.RashVodiNaF,
-                    Tperepad = _dan.Tperepad,
-                    TrebZnTeor = _dan.TrebZnTeor
-                });
+                    model.Data.Furm.Add(new Furma
+                    {
+                        isActual = _dan.isActual,
+                        RashGazNaF = _dan.RashGazNaF,
+                        RashVodiNaF = _dan.RashVodiNaF,
+                        Tperepad = _dan.Tperepad,
+                        TrebZnTeor = _dan.TrebZnTeor
+                    });
+                }
+                return View(model);
             }
-            return View(model);
-        }
             // model.Furm;
         }
     }

@@ -14,7 +14,7 @@ namespace LanceFlow.Models
 
         public DbSet<ProcessOfTechnology> ProcessOfTechnology { get; set; }
 
-        public DbSet<Variants> Variants { get; set; }
+        public DbSet<Variant> Variants { get; set; }
 
         public DbSet<DanniePoFurmam> DanniePoFurmam { get; set; }
         public DbSet<ProcessOfTechnologyDate> ProcessOfTechnologyDate { get; set; }

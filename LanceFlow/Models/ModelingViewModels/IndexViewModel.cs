@@ -11,7 +11,7 @@ namespace LanceFlow.Models.ModelingViewModels
     {
         public FurmaGeneral Data;
 
-        public List<Variants> Variants;
+        public List<Variant> Variants;
 
         public int CurrentVariantId;
 

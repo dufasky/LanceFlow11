@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LanceFlow.Models.Entities
 {
-    public class Variants
+    public class Variant
     {
         [Key]
         public int VariantId { get; set; }

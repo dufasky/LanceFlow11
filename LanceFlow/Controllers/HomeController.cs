@@ -24,7 +24,7 @@ namespace LanceFlow.Controllers
 
         public IActionResult Index()
         {
-            List<Variants> model = _context.Variants.ToList();
+            List<Variant> model = _context.Variants.ToList();
 
             return View(model);
         }

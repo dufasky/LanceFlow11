@@ -15,7 +15,7 @@ namespace LanceFlow.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.0.1")
+                .HasAnnotation("ProductVersion", "3.1.18")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -173,7 +173,7 @@ namespace LanceFlow.Migrations
                     b.ToTable("ProcessOfTechnologyDate");
                 });
 
-            modelBuilder.Entity("LanceFlow.Models.Entities.Variants", b =>
+            modelBuilder.Entity("LanceFlow.Models.Entities.Variant", b =>
                 {
                     b.Property<int>("VariantId")
                         .ValueGeneratedOnAdd()
